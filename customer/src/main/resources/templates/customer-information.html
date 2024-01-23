@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Trang Chủ - FPT Shop 2020</title>
+        <link th:href="@{css/bootstrap.css}" rel="stylesheet"/>
+        <link th:href="@{css/bootstrap-icons.css}" rel="stylesheet"/>
+        <link th:href="@{css/owl.carousel.min.css}" rel="stylesheet"/>
+        <link th:href="@{css/owl.theme.default.min.css}" rel="stylesheet"/>
+        <link th:href="@{css/jquery.fancybox.min.css}" rel="stylesheet"/>
+        <link th:href="@{css/jsRapClock.css}" rel="stylesheet"/>
+        <link th:href="@{css/jquery.jqZoom.css}" rel="stylesheet"/>
+        <link th:href="@{css/style.css}" rel="stylesheet"/>
+
+        <script th:src="@{js/jquery-3.0.0.js}"></script>
+        <script th:src="@{js/bootstrap.bundle.js}"></script>
+        <script th:src="@{js/jquery.nicescroll.js}"></script>
+        <script th:src="@{js/owl.carousel.min.js}"></script>
+        <script th:src="@{js/jquery.fancybox.min.js}"></script>
+        <script th:src="@{js/jsRapClock.js}"></script>
+        <script th:src="@{js/jquery.jqZoom.js}"></script>
+        <script th:src="@{js/jquery-stars.js}"></script>
+        <script th:src="@{js/jquery.scrollAds.js}"></script>
+        <script th:src="@{js/script.js}"></script>
+    </head>
+    <style>
+        /* Tùy chỉnh CSS cho trang user profile */
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .profile-header {
+            background: url('https://www.shutterstock.com/image-vector/default-avatar-profile-icon-social-600nw-1677509740.jpg') no-repeat center;
+            background-size: cover;
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(255, 255, 255, 0.5);
+            z-index: -1;
+        }
+
+        .profile-container {
+            margin-top: 50px;
+        }
+
+        .profile-sidebar {
+            color: black;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .profile-sidebar .nav-link:hover {
+            color: #cccccc;
+        }
+
+        .profile-sidebar .nav-link {
+            color: black;
+        }
+
+        .profile-content {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="logo">
+                    <a href="/">Logo</a>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control"
+                           placeholder="Nhập tên điện thoại, máy tính ... cần tìm"/>
+                    <button class="btn btn-dark btn-sm" type="button">
+                        <i class="bi-search"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <ul class="top-link">
+                    <li>
+                        <a href="#">
+                            <i>icon</i>
+                            Thông tin hay
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i>icon</i>
+                            Thu hộ điện, nước
+                        </a>
+                    </li>
+                    <li>
+                        <div class="dropdown" style="display: inline-block;">
+                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i>icon</i>
+                                Tài khoản
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" style="color: black" th:href="@{/profile}">View Profile</a>
+                                <a class="dropdown-item" style="color: black" th:href="@{/logout}">Logout</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i></i>
+                            Giỏ hàng
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container profile-container">
+    <div class="row">
+        <!-- Phần bên trái -->
+        <div class="col-md-3">
+            <div class="profile-sidebar">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Thông tin cá nhân</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Đơn hàng của tôi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Số địa chỉ nhận hàng</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Đăng xuất</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Phần bên phải -->
+        <div class="col-md-9">
+            <div class="profile-content">
+                <h2>Thông tin cá nhân của bạn</h2>
+                <hr>
+                <p>Thông tin cá nhân của bạn được bảo mật và chỉ được sử dụng cho mục đích giao dịch mua bán trên
+                    FPTShop.com.vn</p>
+                <br>
+                <br><br>
+                <div class="row">
+                    <div class="col-md-8">
+                        <form th:action="@{/update-profile}" method="post" name="signupForm" id="signupForm" th:object="${customer}" onsubmit="showAlert()">
+<!--                            <div class="inputDiv">-->
+<!--                                <label class="inputLabel" for="firstname"> First name * </label>-->
+<!--                                <input type="text" id="firstname" th:field="*{firstName}" name="firstname" required>-->
+<!--                            </div>-->
+                            <div class="mb-6 row">
+                                <label for="firstName" class="col-sm-5 col-form-label">First Name</label>
+                                <div class="col-sm-6">
+                                    <input type="text" id="firstname" class="form-control-plaintext" th:field="*{firstName}">
+                                </div>
+                            </div>
+
+                            <div class="mb-6 row">
+                                <label for="lastName" class="col-sm-5 col-form-label">Last Name</label>
+                                <div class="col-sm-6">
+                                    <input type="text" id="lastname" class="form-control-plaintext" th:field="*{lastName}">
+                                </div>
+                            </div>
+
+                            <div class="mb-6 row">
+                                <label for="username" class="col-sm-5 col-form-label">Username</label>
+                                <div class="col-sm-6">
+                                    <input type="text" id="username" class="form-control-plaintext" th:field="*{username}">
+                                </div>
+                            </div>
+
+                            <div class="mb-6 row">
+                                <label for="phoneNumber" class="col-sm-5 col-form-label">Phone Number</label>
+                                <div class="col-sm-6">
+                                    <input type="text" id="phoneNumber" class="form-control-plaintext" th:field="*{phoneNumber}">
+                                </div>
+                            </div>
+
+                            <div class="mb-6 row">
+                                <label for="address" class="col-sm-5 col-form-label">Address</label>
+                                <div class="col-sm-6">
+                                    <input type="text" id="address" class="form-control-plaintext" th:field="*{address}">
+                                </div>
+                            </div>
+
+                            <div class="inputDiv">
+                                <label for="address" class="col-form-label">City</label>
+                                <select class="form-control" id="city" th:field="*{city}" name="city" required>
+                                    <option value="">-SELECT-</option>
+                                    <option th:each="city : ${cities}"
+                                            th:value="${city.id}"
+                                            th:text="${city.name}">
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="inputDiv">
+                                <label class="col-form-label" for="country">Country</label>
+                                <select class="form-control" id="country" th:field="*{country}" name="country" required>
+                                    <option value="">-SELECT-</option>
+                                    <option th:each="country : ${countries}"
+                                            th:value="${country.id}"
+                                            th:text="${country.name}">
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div style="display: flex; justify-content: space-between; padding-top: 2rem;">
+                                <button class="btn btn-primary" type="submit">Save</button>
+                                <a th:href="@{/change-password}" class="btn btn-primary text-center">Change password</a>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <section class="footer-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 footer-link">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <ul>
+                                <li>
+                                    <a href="#">Giới thiệu về công ty</a>
+                                </li>
+                                <li>
+                                    <a href="#">Câu hỏi thường gặp mua hàng</a>
+                                </li>
+                                <li>
+                                    <a href="#">Chính sách bảo mật</a>
+                                </li>
+                                <li>
+                                    <a href="#">Quy chế hoạt động</a>
+                                </li>
+                                <li>
+                                    <a href="#">Kiểm tra hóa đơn điện tử</a>
+                                </li>
+                                <li>
+                                    <a href="#">Tra cứu thông tin bảo hành</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-4">
+                            <ul>
+                                <li>
+                                    <a href="#">Tin tuyển dụng</a>
+                                </li>
+                                <li>
+                                    <a href="#">Tin khuyến mãi</a>
+                                </li>
+                                <li>
+                                    <a href="#">Hướng dẫn mua online</a>
+                                </li>
+                                <li>
+                                    <a href="#">Hướng dẫn mua trả góp</a>
+                                </li>
+                                <li>
+                                    <a href="#">Chính sách trả góp</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-4">
+                            <ul>
+                                <li>
+                                    <a href="#">Hệ thống cửa hàng</a>
+                                </li>
+                                <li>
+                                    <a href="#">Hệ thống bảo hành</a>
+                                </li>
+                                <li>
+                                    <a href="#">Kiểm tra hàng Apple chính hãng</a>
+                                </li>
+                                <li>
+                                    <a href="#">Giới thiệu máy đổi trả</a>
+                                </li>
+                                <li>
+                                    <a href="#">Chính sách đổi trả</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 footer-contact">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <strong>Tư vấn mua hàng (Miễn phí)</strong>
+                            <h4>
+                                <a href="tel:18006601">1800 6601</a>
+                                <span>(Nhánh 1)</span>
+                            </h4>
+                            <strong>Hỗ trợ kỹ thuật</strong>
+                            <h4>
+                                <a href="tel:18006601">1800 6601</a>
+                                <span>(Nhánh 2)</span>
+                            </h4>
+                        </div>
+                        <div class="col-lg-7">
+                            <strong>Góp ý, khiếu nại dịch vụ (8h00-22h00)</strong>
+                            <h4>
+                                <a href="tel:18006616">1800 6616</a>
+                            </h4>
+                        </div>
+                        <div class="col-lg-5">
+                            <strong>Hỗ trợ thanh toán:</strong>
+                            <i class="payment">Icon</i>
+                            <i class="support"></i>
+                            <i class="bct"></i>
+                        </div>
+                        <div class="col-lg-7">
+                            <strong>Chứng nhận:</strong>
+                            <i class="certificate">Icon</i>
+                            <div>Website cùng tập đoàn:</div>
+                            <a class="longchau" href="http:/nhathuoclongchau.com" target="_blank">Long Châu</a>
+                            <a class="fbeauty" href="http:/fbeauty.vn" target="_blank">FBeauty</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="footer-bottom">
+        © 2007 - 2020 Công Ty Cổ Phần Bán Lẻ Kỹ Thuật Số FPT / Địa chỉ: 261 - 263 Khánh Hội, P5, Q4, TP. Hồ Chí Minh /
+        GPĐKKD số 0311609355 do Sở KHĐT TP.HCM cấp ngày 08/03/2012. GP số 47/GP-TTĐT do sở TTTT TP HCM cấp ngày
+        02/07/2018. Điện thoại: (028)73023456. Email: fptshop@fpt.com.vn.
+        <br/>
+        Chịu trách nhiệm nội dung: Nguyễn Trịnh Nhật Linh.
+    </section>
+</footer>
+<!-- Bootstrap JS và Popper.js (để sử dụng các tính năng Bootstrap) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    function showAlert() {
+        alert("Your customer info has been changed successfully!");
+    }
+</script>
+</body>
+</html>

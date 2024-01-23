@@ -1,0 +1,447 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Laptop - FPT Shop 2020</title>
+
+    <link th:href = "@{css/bootstrap.css}" rel="stylesheet" />
+    <link th:href = "@{css/bootstrap-icons.css}" rel="stylesheet" />
+    <link th:href = "@{css/owl.carousel.min.css}" rel="stylesheet" />
+    <link th:href = "@{css/owl.theme.default.min.css}" rel="stylesheet" />
+    <link th:href = "@{css/jquery.fancybox.min.css}" rel="stylesheet" />
+    <link th:href = "@{css/jsRapClock.css}" rel="stylesheet" />
+    <link th:href = "@{css/style.css}" rel="stylesheet" />
+
+    <script th:src="js/jquery-3.0.0.js"></script>
+    <script th:src="js/bootstrap.bundle.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="logo">
+                        <a href="/">Logo</a>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="input-group input-group-sm">
+                        <input type="text" class="form-control"
+                               placeholder="Nhập tên điện thoại, máy tính ... cần tìm" />
+                        <button class="btn btn-dark btn-sm" type="button">
+                            <i class="bi-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <ul class="top-link">
+                        <li>
+                            <a href="#">
+                                <i>icon</i>
+                                Thông tin hay
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i>icon</i>
+                                Thu hộ điện, nước
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i>icon</i>
+                                Giỏ hàng
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light main-menu">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                            <i>icon</i>
+                            Điện thoại
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                            <i>icon</i>
+                            Laptop
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                            <i>icon</i>
+                            Apple
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                            <i>icon</i>
+                            Đồng hồ
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                            <i>icon</i>
+                            Phụ kiện
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                            <i>icon</i>
+                            Máy cũ giá rẻ
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                            <i>icon</i>
+                            Tablet
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                            <i>icon</i>
+                            Sim &amp; Thẻ
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                            <i>icon</i>
+                            Khuyến mãi
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                            <i>icon</i>
+                            Trả góp
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <content>
+        <section class="main-carousel">
+            <div class="container">
+                <div class="owl-carousel owl-theme">
+                    <a data-fancybox="gallery" th:href="@{images/image/carousel/home-carousel/01.png}">
+                        <img th:src="@{images/image/carousel/home-carousel/01.png}">
+                    </a>
+                    <a data-fancybox="gallery" th:href="@{images/image/carousel/home-carousel/02.png}">
+                        <img th:src="@{images/image/carousel/home-carousel/02.png}">
+                    </a>
+                    <a data-fancybox="gallery" th:href="@{images/image/carousel/home-carousel/03.png}">
+                        <img th:src="@{images/image/carousel/home-carousel/03.png}">
+                    </a>
+                    <a data-fancybox="gallery" th:href="@{images/image/carousel/home-carousel/04.png}">
+                        <img th:src="@{images/image/carousel/home-carousel/04.png}">
+                    </a>
+                    <a data-fancybox="gallery" th:href="@{images/image/carousel/home-carousel/05.png}">
+                        <img th:src="@{images/image/carousel/home-carousel/05.png}">
+                    </a>
+                    <a data-fancybox="gallery" th:href="@{images/image/carousel/home-carousel/06.png}">
+                        <img th:src="@{images/image/carousel/home-carousel/06.png}">
+                    </a>
+                    <a data-fancybox="gallery" th:href="@{images/image/carousel/home-carousel/07.png}">
+                        <img th:src="@{images/image/carousel/home-carousel/07.png}">
+                    </a>
+                    <a data-fancybox="gallery" th:href="@{images/image/carousel/home-carousel/08.png}">
+                        <img th:src="@{images/image/carousel/home-carousel/08.png}">
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="product-list">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="px-5 pb-5">
+                            <div id="my-clock"></div>
+                        </div>
+                        <aside class="brand-list">
+                            <h4>Hãng sản xuất</h4>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                                <label class="form-check-label" for="inlineCheckbox1">Tất cả</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                <label class="form-check-label" for="inlineCheckbox2">Apple</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                                <label class="form-check-label" for="inlineCheckbox1">Samsung</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                <label class="form-check-label" for="inlineCheckbox2">OPPO</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                                <label class="form-check-label" for="inlineCheckbox1">Vivo</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                <label class="form-check-label" for="inlineCheckbox2">Vsmart</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                                <label class="form-check-label" for="inlineCheckbox1">Xiaomi</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                <label class="form-check-label" for="inlineCheckbox2">Realme</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                                <label class="form-check-label" for="inlineCheckbox1">Nokia</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                <label class="form-check-label" for="inlineCheckbox2">Huawei</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                                <label class="form-check-label" for="inlineCheckbox1">Mastel</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                <label class="form-check-label" for="inlineCheckbox2">Itel</label>
+                            </div>
+                            <div class="clearfix"></div>
+                        </aside>
+                        <aside class="price-list">
+                            <h4>Mức Giá</h4>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                                <label class="form-check-label" for="inlineCheckbox1">Tất cả</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                <label class="form-check-label" for="inlineCheckbox2">Dưới 10tr</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                                <label class="form-check-label" for="inlineCheckbox1">Từ 10 - 15tr</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                <label class="form-check-label" for="inlineCheckbox2">Từ 15 - 20tr</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                                <label class="form-check-label" for="inlineCheckbox1">Từ 20 - 25tr</label>
+                            </div>
+                        </aside>
+                    </div>
+                    <div class="col-lg-9">
+                        <section class="laptop-custome">
+                            <h2>Laptop Theo Nhu Cầu</h2>
+                            <ul class="row">
+                                <li class="col">
+                                    <a href="#">
+                                        <img th:src="@{images/image/nhu-cau/gaming-do-hoa.png}" />
+                                        <span>Gaming Đồ Họa</span>
+                                    </a>
+                                </li>
+                                <li class="col">
+                                    <a href="#">
+                                        <img th:src="@{images/image/nhu-cau/doanh-nhan.png}" />
+                                        <span>Doanh Nhân</span>
+                                    </a>
+                                </li>
+                                <li class="col">
+                                    <a href="#">
+                                        <img th:src="@{images/image/nhu-cau/mong-nhe.png}" />
+                                        <span>Mỏng Nhẹ</span>
+                                    </a>
+                                </li>
+                                <li class="col">
+                                    <a href="#">
+                                        <img th:src="@{images/image/nhu-cau/sinh-vien.png}" />
+                                        <span>Sinh Viên</span>
+                                    </a>
+                                </li>
+                                <li class="col">
+                                    <a href="#">
+                                        <img th:src="@{images/image/nhu-cau/van-phong.png}" />
+                                        <span>Văn Phòng</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </content>
+    <footer>
+        <section class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7 footer-link">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <ul>
+                                    <li>
+                                        <a href="#">Giới thiệu về công ty</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Câu hỏi thường gặp mua hàng</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Chính sách bảo mật</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Quy chế hoạt động</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Kiểm tra hóa đơn điện tử</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Tra cứu thông tin bảo hành</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4">
+                                <ul>
+                                    <li>
+                                        <a href="#">Tin tuyển dụng</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Tin khuyến mãi</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Hướng dẫn mua online</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Hướng dẫn mua trả góp</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Chính sách trả góp</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4">
+                                <ul>
+                                    <li>
+                                        <a href="#">Hệ thống cửa hàng</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Hệ thống bảo hành</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Kiểm tra hàng Apple chính hãng</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Giới thiệu máy đổi trả</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Chính sách đổi trả</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 footer-contact">
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <strong>Tư vấn mua hàng (Miễn phí)</strong>
+                                <h4>
+                                    <a href="tel:18006601">1800 6601</a>
+                                    <span>(Nhánh 1)</span>
+                                </h4>
+                                <strong>Hỗ trợ kỹ thuật</strong>
+                                <h4>
+                                    <a href="tel:18006601">1800 6601</a>
+                                    <span>(Nhánh 2)</span>
+                                </h4>
+                            </div>
+                            <div class="col-lg-7">
+                                <strong>Góp ý, khiếu nại dịch vụ (8h00-22h00)</strong>
+                                <h4>
+                                    <a href="tel:18006616">1800 6616</a>
+                                </h4>
+                            </div>
+                            <div class="col-lg-5">
+                                <strong>Hỗ trợ thanh toán:</strong>
+                                <i class="payment">Icon</i>
+                                <i class="support"></i>
+                                <i class="bct"></i>
+                            </div>
+                            <div class="col-lg-7">
+                                <strong>Chứng nhận:</strong>
+                                <i class="certificate">Icon</i>
+                                <div>Website cùng tập đoàn:</div>
+                                <a class="longchau" href="http://nhathuoclongchau.com" target="_blank">Long Châu</a>
+                                <a class="fbeauty" href="http://fbeauty.vn" target="_blank">FBeauty</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="footer-bottom">
+            © 2007 - 2020 Công Ty Cổ Phần Bán Lẻ Kỹ Thuật Số FPT / Địa chỉ: 261 - 263 Khánh Hội, P5, Q4, TP. Hồ Chí Minh / GPĐKKD số 0311609355 do Sở KHĐT TP.HCM cấp ngày 08/03/2012. GP số 47/GP-TTĐT do sở TTTT TP HCM cấp ngày 02/07/2018. Điện thoại: (028)73023456. Email: fptshop@fpt.com.vn.
+            <br />
+            Chịu trách nhiệm nội dung: Nguyễn Trịnh Nhật Linh.
+        </section>
+    </footer>
+    <script th:src="js/jquery.nicescroll.js"></script>
+    <script th:src="js/owl.carousel.min.js"></script>
+    <script th:src="js/jquery.fancybox.min.js"></script>
+    <script th:src="js/jsRapClock.js"></script>
+    <script th:src="js/jquery.jqZoom.js"></script>
+    <script th:src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="https://www.thymeleaf.org/">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Confirm OTP</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Confirm OTP</h1>-->
+<!--<form th:action="@{/do-confirm-otp}" method="post">-->
+<!--    <label for="username">Username:</label><br>-->
+<!--    <input type="text" id="username" name="username" th:value="${username}" required><br>-->
+
+<!--    <label for="otp">OTP:</label><br>-->
+<!--    <input type="text" id="otp" name="otp" th:value="${otp}" required><br>-->
+
+<!--    <input type="submit" value="Confirm">-->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+
+<head>
+    <title>FPT Laptop Shop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.0-beta2/css/bootstrap.min.css">
+    <style>
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        body {
+            background-color: rgb(192, 211, 211);
+        }
+
+        /* Styles for the button when it is not disabled */
+        #resendButton {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        /* Styles for the button when it is disabled */
+        #resendButton:disabled {
+            background-color: #cccccc; /* Gray */
+            color: #666666;
+            cursor: not-allowed;
+        }
+    </style>
+    <link rel="stylesheet" th:href="@{css/login.css}">
+</head>
+
+<body>
+<section id="otp-confirm-form">
+    <div class="container_3d">
+        <div class="wrapper">
+            <form class="form" th:action="@{/do-confirm-otp}" method="post">
+                <h3>Verify Customer</h3>
+                <div class="flex-column">
+                    <label>Email </label>
+                </div>
+                <div class="inputForm">
+                    <svg height="20" viewBox="0 0 32 32" width="20" xmlns="http://www.w3.org/2000/svg">
+                        <g id="Layer_3" data-name="Layer 3">
+                            <path
+                                    d="m30.853 13.87a15 15 0 0 0 -29.729 4.082 15.1 15.1 0 0 0 12.876 12.918 15.6 15.6 0 0 0 2.016.13 14.85 14.85 0 0 0 7.715-2.145 1 1 0 1 0 -1.031-1.711 13.007 13.007 0 1 1 5.458-6.529 2.149 2.149 0 0 1 -4.158-.759v-10.856a1 1 0 0 0 -2 0v1.726a8 8 0 1 0 .2 10.325 4.135 4.135 0 0 0 7.83.274 15.2 15.2 0 0 0 .823-7.455zm-14.853 8.13a6 6 0 1 1 6-6 6.006 6.006 0 0 1 -6 6z">
+                            </path>
+                        </g>
+                    </svg>
+                    <input type="text" class="input" name="username" placeholder="Enter your Email" th:value="${username}">
+                </div>
+
+                <div class="flex-column">
+                    <label>OTP</label>
+                </div>
+                <div class="inputForm">
+                    <svg height="20" viewBox="0 0 32 32" width="20" xmlns="http://www.w3.org/2000/svg">
+                        <g id="Layer_3" data-name="Layer 3">
+                            <path
+                                    d="m30.853 13.87a15 15 0 0 0 -29.729 4.082 15.1 15.1 0 0 0 12.876 12.918 15.6 15.6 0 0 0 2.016.13 14.85 14.85 0 0 0 7.715-2.145 1 1 0 1 0 -1.031-1.711 13.007 13.007 0 1 1 5.458-6.529 2.149 2.149 0 0 1 -4.158-.759v-10.856a1 1 0 0 0 -2 0v1.726a8 8 0 1 0 .2 10.325 4.135 4.135 0 0 0 7.83.274 15.2 15.2 0 0 0 .823-7.455zm-14.853 8.13a6 6 0 1 1 6-6 6.006 6.006 0 0 1 -6 6z">
+                            </path>
+                        </g>
+                    </svg>
+                    <input type="text" class="input" name="otp" placeholder="Enter your OTP" th:value="${otp}">
+                </div>
+
+                <span id="countdown"></span>
+                <button id="resendButton" class="button-resend" disabled>Resend OTP</button>
+
+                <button class="button-submit" type="submit">Verify</button>
+            </form>
+        </div>
+    </div>
+</section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.0-beta2/js/bootstrap.bundle.min.js"></script>
+<script>
+    var timeleft = 0.2 * 60; // 5 minutes in seconds
+    var resendButton = document.getElementById('resendButton');
+    var countdownTimer = document.getElementById('countdown');
+    var countdown = setInterval(function(){
+        if(timeleft <= 0){
+            clearInterval(countdown);
+            countdownTimer.innerHTML = "OTP Expired
+            resendButton.disabled = false;
+        } else {
+            countdownTimer.innerHTML = "Time: " + Math.floor(timeleft / 60) + ":" + (timeleft % 60 < 10 ? "0" : "") + timeleft % 60;
+        }
+        timeleft -= 1;
+    }, 1000);
+
+    if(timeleft <= 0){
+        clearInterval(countdown);
+        countdownTimer.innerHTML = "OTP Expired";
+        resendButton.disabled = false;
+        resendButton.addEventListener('click', function() {
+            var otpForm = document.getElementById('otpForm');
+            otpForm.action = "/do-resend-otp";
+            otpForm.submit();
+        });
+    }
+</script>
+</body>
+
+</html>

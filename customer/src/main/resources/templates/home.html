@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Trang Chủ - FPT Shop 2020</title>
+    <link th:href = "@{css/bootstrap.css}" rel="stylesheet" />
+    <link th:href = "@{css/bootstrap-icons.css}" rel="stylesheet" />
+    <link th:href = "@{css/owl.carousel.min.css}" rel="stylesheet" />
+    <link th:href = "@{css/owl.theme.default.min.css}" rel="stylesheet" />
+    <link th:href = "@{css/jquery.fancybox.min.css}" rel="stylesheet" />
+    <link th:href = "@{css/jsRapClock.css}" rel="stylesheet" />
+    <link th:href = "@{css/jquery.jqZoom.css}" rel="stylesheet" />
+    <link th:href = "@{css/style.css}" rel="stylesheet" />
+
+    <script th:src= "@{js/jquery-3.0.0.js}"></script>
+    <script th:src= "@{js/bootstrap.bundle.js}"></script>
+    <script th:src= "@{js/jquery.nicescroll.js}"></script>
+    <script th:src= "@{js/owl.carousel.min.js}"></script>
+    <script th:src= "@{js/jquery.fancybox.min.js}"></script>
+    <script th:src= "@{js/jsRapClock.js}"></script>
+    <script th:src= "@{js/jquery.jqZoom.js}"></script>
+    <script th:src= "@{js/jquery-stars.js}"></script>
+    <script th:src= "@{js/jquery.scrollAds.js}"> </script>
+    <script th:src= "@{js/script.js}"></script>
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="logo">
+                    <a href="/">Logo</a>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control"
+                           placeholder="Nhập tên điện thoại, máy tính ... cần tìm" />
+                    <button class="btn btn-dark btn-sm" type="button">
+                        <i class="bi-search"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <ul class="top-link">
+                    <li>
+                        <a href="#">
+                            <i>icon</i>
+                            Thông tin hay
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i>icon</i>
+                            Thu hộ điện, nước
+                        </a>
+                    </li>
+                    <li>
+                        <div class="dropdown" style="display: inline-block;">
+                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i>icon</i>
+                                Tài khoản
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" style="color: black" th:href="@{/profile}">View Profile</a>
+                                <a class="dropdown-item" style="color: black" th:href="@{/logout}">Logout</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i></i>
+                            Giỏ hàng
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+<nav class="navbar navbar-expand-lg navbar-light bg-light main-menu">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                        <i>icon</i>
+                        Điện thoại
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                        <i>icon</i>
+                        Laptop
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                        <i>icon</i>
+                        Apple
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                        <i>icon</i>
+                        Đồng hồ
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                        <i>icon</i>
+                        Phụ kiện
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                        <i>icon</i>
+                        Máy cũ giá rẻ
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                        <i>icon</i>
+                        Tablet
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                        <i>icon</i>
+                        Sim &amp; Thẻ
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                        <i>icon</i>
+                        Khuyến mãi
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                        <i>icon</i>
+                        Trả góp
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<content>
+    <section class="main-carousel">
+        <div class="container">
+            <div class="owl-carousel owl-theme">
+                <a data-fancybox="gallery" th:href = "@{images/image/carousel/home-carousel/01.png}">
+                    <img th:src="@{images/image/carousel/home-carousel/01.png}">
+                </a>
+                <a data-fancybox="gallery" th:href = "@{images/image/carousel/home-carousel/02.png}">
+                    <img th:src="@{images/image/carousel/home-carousel/02.png}">
+                </a>
+                <a data-fancybox="gallery" th:href = "@{images/image/carousel/home-carousel/03.png}">
+                    <img th:src="@{images/image/carousel/home-carousel/03.png}">
+                </a>
+                <a data-fancybox="gallery" th:href = "@{images/image/carousel/home-carousel/04.png}">
+                    <img th:src="@{images/image/carousel/home-carousel/04.png}">
+                </a>
+                <a data-fancybox="gallery" th:href = "@{images/image/carousel/home-carousel/05.png}">
+                    <img th:src="@{images/image/carousel/home-carousel/05.png}">
+                </a>
+                <a data-fancybox="gallery" th:href = "@{images/image/carousel/home-carousel/06.png}">
+                    <img th:src="@{images/image/carousel/home-carousel/06.png}">
+                </a>
+                <a data-fancybox="gallery" th:href = "@{images/image/carousel/home-carousel/07.png}">
+                    <img th:src="@{images/image/carousel/home-carousel/07.png}">
+                </a>
+                <a data-fancybox="gallery" th:href = "@{images/image/carousel/home-carousel/08.png}">
+                    <img th:src="@{staticimages/image/carousel/home-carousel/08.png}">
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="home-category">
+        <div class="container">
+            <div class="row">
+                <div class="col-4 col-md-3 col-lg-2">
+                    <a href="#">
+                        <figure>
+                            <img th:src="@{images/image/category/dien-thoai.png}" />
+                        </figure>
+                        <div>Điện thoại</div>
+                    </a>
+                </div>
+                <div class="col-4 col-md-3 col-lg-2">
+                    <a href="#">
+                        <figure>
+                            <img th:src="@{images/image/category/laptop.png}" />
+                        </figure>
+                        <div>Laptop</div>
+                    </a>
+                </div>
+                <div class="col-4 col-md-3 col-lg-2">
+                    <a href="#">
+                        <figure>
+                            <img th:src="@{images/image/category/apple.png}" />
+                        </figure>
+                        <div>Apple</div>
+                    </a>
+                </div>
+                <div class="col-4 col-md-3 col-lg-2">
+                    <a href="#">
+                        <figure>
+                            <img th:src="@{images/image/category/tablet.png}" />
+                        </figure>
+                        <div>Máy Tính Bảng</div>
+                    </a>
+                </div>
+                <div class="col-4 col-md-3 col-lg-2">
+                    <a href="#">
+                        <figure>
+                            <img th:src="@{images/image/category/smart-watch.png}" />
+                        </figure>
+                        <div>Đồng Hồ Thông Minh</div>
+                    </a>
+                </div>
+                <div class="col-4 col-md-3 col-lg-2">
+                    <a href="#">
+                        <figure>
+                            <img th:src="@{images/image/category/sac_du_phong.png}" />
+                        </figure>
+                        <div>Sạc Dự Phòng</div>
+                    </a>
+                </div>
+                <div class="col-4 col-md-3 col-lg-2">
+                    <a href="#">
+                        <figure>
+                            <img th:src="@{images/image/category/may_cu.png}" />
+                        </figure>
+                        <div>Máy Cũ</div>
+                    </a>
+                </div>
+                <div class="col-4 col-md-3 col-lg-2">
+                    <a href="#">
+                        <figure>
+                            <img th:src="@{images/image/category/monitor2x.png}" />
+                        </figure>
+                        <div>Màn Hình</div>
+                    </a>
+                </div>
+                <div class="col-4 col-md-3 col-lg-2">
+                    <a href="#">
+                        <figure>
+                            <img th:src="@{images/image/category/may_loc_khong_khi.png}" />
+                        </figure>
+                        <div>Máy Lọc Không Khí</div>
+                    </a>
+                </div>
+                <div class="col-4 col-md-3 col-lg-2">
+                    <a href="#">
+                        <figure>
+                            <img th:src="@{images/image/category/kinhcuongluc.png}" />
+                        </figure>
+                        <div>Kính Cường Lực</div>
+                    </a>
+                </div>
+                <div class="col-4 col-md-3 col-lg-2">
+                    <a href="#">
+                        <figure>
+                            <img th:src="@{images/image/category/may-tinh-de-ban.png}" />
+                        </figure>
+                        <div>Máy Tính Để Bàn</div>
+                    </a>
+                </div>
+                <div class="col-4 col-md-3 col-lg-2">
+                    <a href="#">
+                        <figure>
+                            <img th:src="@{images/image/category/may-in.png}" />
+                        </figure>
+                        <div>Máy In</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="home-bonus">
+        <div class="container">
+            <div class="background">
+                <h2>Khuyến mãi Hot</h2>
+                <div class="bonus-carousel">
+                    <div id="bonus-carousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="row">
+                                    <div class="col-lg-3 col-6">
+                                        <figure>
+                                            <a href="#" >
+                                                <img class="w-100" th:src="@{images/image/mobile/iphone/2b1efa83b1b341a092d7ef72e50b1e7f.jpg}" />
+                                            </a>
+                                        </figure>
+                                        <a href="#">
+                                            <strong>iPhone X-Max</strong>
+                                        </a>
+                                        <small>19.980.000đ</small>
+                                        <del>25.000.000đ</del>
+                                    </div>
+                                    <div class="col-lg-3 col-6">
+                                        <figure>
+                                            <a href="#">
+                                                <img class="w-100" th:src="@{/images/download.jpg}" />
+                                            </a>
+                                        </figure>
+                                        <a href="#">
+                                            <strong>iPhone X-Maxccccc</strong>
+                                        </a>
+                                        <small>19.980.000đ</small>
+                                    </div>
+                                    <div class="col-lg-3 col-6">
+                                        <figure>
+                                            <a href="#">
+                                                <img class="w-100" th:src="@{images/image/mobile/iphone/84f599be514c47ffb89aaa4eada2b86e.jpg}" />
+                                            </a>
+                                        </figure>
+                                        <a href="#">
+                                            <strong>iPhone X-Max</strong>
+                                        </a>
+                                        <small>12.980.000đ</small>
+                                        <del>24.000.000đ</del>
+                                    </div>
+                                    <div class="col-lg-3 col-6">
+                                        <figure>
+                                            <a href="#">
+                                                <img class="w-100" th:src="@{images/image/mobile/iphone/8e2e3deebc2a4307b2391879703c5369.jpg}" />
+                                            </a>
+                                        </figure>
+                                        <a href="#">
+                                            <strong>iPhone X-Max</strong>
+                                        </a>
+                                        <small>19.980.000đ</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="row">
+                                    <div class="col-lg-3 col-6">
+                                        <figure>
+                                            <a href="#">
+                                                <img class="w-100" th:src="@{images/image/mobile/samsung/0b04efaff0b0493bb976e5acc42ec89c.jpg}" />
+                                            </a>
+                                        </figure>
+                                        <a href="#">
+                                            <strong>iPhone X-Max</strong>
+                                        </a>
+                                        <small>19.980.000đ</small>
+                                    </div>
+                                    <div class="col-lg-3 col-6">
+                                        <figure>
+                                            <a href="#">
+                                                <img class="w-100" th:src="@{images/image/mobile/samsung/22828ce24a5f413e9cb4b9e29a7bd684.jpg}" />
+                                            </a>
+                                        </figure>
+                                        <a href="#">
+                                            <strong>iPhone X-Max</strong>
+                                        </a>
+                                        <small>19.980.000đ</small>
+                                    </div>
+                                    <div class="col-lg-3 col-6">
+                                        <figure>
+                                            <a href="#">
+                                                <img class="w-100" th:src="@{images/image/mobile/samsung/3cfa9d215f9b42278856b13a03f73fe6.jpg}" />
+                                            </a>
+                                        </figure>
+                                        <a href="#">
+                                            <strong>iPhone X-Max</strong>
+                                        </a>
+                                        <small>19.980.000đ</small>
+                                    </div>
+                                    <div class="col-lg-3 col-6">
+                                        <figure>
+                                            <a href="#">
+                                                <img class="w-100" th:src="@{images/image/mobile/samsung/44b840c4fe7b43b8ade2d9caba572c62.jpg}" />
+                                            </a>
+                                        </figure>
+                                        <a href="#">
+                                            <strong>iPhone X-Max</strong>
+                                        </a>
+                                        <small>19.980.000đ</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#bonus-carousel" role="button" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#bonus-carousel" role="button" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="home-ads-1">
+        <div class="container">
+            <a href="#">
+                <img th:src="@{images/image/ads-home/1.png}" />
+            </a>
+        </div>
+    </section>
+    <section class="home-product">
+        <div class="container">
+            <div class="background">
+                <div class="title">
+                    <h2>ĐIỆN THOẠI NỔI BẬT</h2>
+                    <a href="#">Xem tất cả</a>
+                </div>
+                <ul class="row content">
+                    <li class="col-lg-3 col-6">
+                        <div class="background">
+                            <div class="avatar">
+                                <a class="zoom-box" href="#">
+                                    <img th:src="@{images/image/mobile/iphone/2b1efa83b1b341a092d7ef72e50b1e7f.jpg}" />
+                                </a>
+                                <label class="installment">Trả góp 0%</label>
+                                <label class="bonus">Lì xì 1.000.000đ</label>
+                            </div>
+                            <a class="title" href="#">iPhone 12 Pro Max 128GB</a>
+                            <div class="price">
+                                <span>32.990.000 ₫</span>
+                                <small>
+                                    <del>33.990.000 ₫</del>
+                                    <em>2 ngày 05:01:02</em>
+                                </small>
+                            </div>
+                            <div class="desc">
+                                <label><i class="bi-cpu-fill"></i> <span>A14 Bionic</span></label>
+                                <label><i class="bi-phone"></i> <span>6.7&Prime;</span></label>
+                                <label><i class="bi-grip-vertical"></i> <span>6 Gb</span></label>
+                                <label><i class="bi-hdd-fill"></i> <span>128 Gb</span></label>
+                            </div>
+                            <div class="button">
+                                <a class="btn btn-danger" href="#">Mua ngay</a>
+                                <a class="btn btn-secondary" href="#">So sánh</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-lg-3 col-6">
+                        <div class="background">
+                            <div class="avatar">
+                                <a class="zoom-box" href="#">
+                                    <img th:src="@{images/image/mobile/samsung/0b04efaff0b0493bb976e5acc42ec89c.jpg}" />
+                                </a>
+                                <label class="installment">Trả góp 0%</label>
+                                <label class="bonus">Lì xì 1.000.000đ</label>
+                            </div>
+                            <a class="title" href="#">iPhone 12 Pro Max 128GB</a>
+                            <div class="price">
+                                <span>32.990.000 ₫</span>
+                                <small>
+                                    <del>33.990.000 ₫</del>
+                                    <em>2 ngày 05:01:02</em>
+                                </small>
+                            </div>
+                            <div class="desc">
+                                <label><i class="bi-cpu-fill"></i> <span>A14 Bionic</span></label>
+                                <label><i class="bi-phone"></i> <span>6.7&Prime;</span></label>
+                                <label><i class="bi-grip-vertical"></i> <span>6 Gb</span></label>
+                                <label><i class="bi-hdd-fill"></i> <span>128 Gb</span></label>
+                            </div>
+                            <div class="button">
+                                <a class="btn btn-danger" href="#">Mua ngay</a>
+                                <a class="btn btn-secondary" href="#">So sánh</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-lg-3 col-6">
+                        <div class="background">
+                            <div class="avatar">
+                                <a class="zoom-box" href="#">
+                                    <img th:src="@{images/image/mobile/opple/09df760f8724458eb23c0bfa2a35e3c6.jpg}" />
+                                </a>
+                                <label class="installment">Trả góp 0%</label>
+                                <label class="bonus">Lì xì 1.000.000đ</label>
+                            </div>
+                            <a class="title" href="#">iPhone 12 Pro Max 128GB</a>
+                            <div class="price">
+                                <span>32.990.000 ₫</span>
+                                <small>
+                                    <del>33.990.000 ₫</del>
+                                    <em>2 ngày 05:01:02</em>
+                                </small>
+                            </div>
+                            <div class="desc">
+                                <label><i class="bi-cpu-fill"></i> <span>A14 Bionic</span></label>
+                                <label><i class="bi-phone"></i> <span>6.7&Prime;</span></label>
+                                <label><i class="bi-grip-vertical"></i> <span>6 Gb</span></label>
+                                <label><i class="bi-hdd-fill"></i> <span>128 Gb</span></label>
+                            </div>
+                            <div class="button">
+                                <a class="btn btn-danger" href="#">Mua ngay</a>
+                                <a class="btn btn-secondary" href="#">So sánh</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-lg-3 col-6">
+                        <div class="background">
+                            <div class="avatar">
+                                <a class="zoom-box" href="#">
+                                    <img th:src="@{images/image/mobile/iphone/8e64556ffcf949a18c095d2f8ae6093f.jpg}" />
+                                </a>
+                                <label class="installment">Trả góp 0%</label>
+                                <label class="bonus">Lì xì 1.000.000đ</label>
+                            </div>
+                            <a class="title" href="#">iPhone 12 Pro Max 128GB</a>
+                            <div class="price">
+                                <span>32.990.000 ₫</span>
+                                <small>
+                                    <del>33.990.000 ₫</del>
+                                    <em>2 ngày 05:01:02</em>
+                                </small>
+                            </div>
+                            <div class="desc">
+                                <label><i class="bi-cpu-fill"></i> <span>A14 Bionic</span></label>
+                                <label><i class="bi-phone"></i> <span>6.7&Prime;</span></label>
+                                <label><i class="bi-grip-vertical"></i> <span>6 Gb</span></label>
+                                <label><i class="bi-hdd-fill"></i> <span>128 Gb</span></label>
+                            </div>
+                            <div class="button">
+                                <a class="btn btn-danger" href="#">Mua ngay</a>
+                                <a class="btn btn-secondary" href="#">So sánh</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-lg-3 col-6">
+                        <div class="background">
+                            <div class="avatar">
+                                <a href="#">
+                                    <img th:src="@{images/image/mobile/iphone/2b1efa83b1b341a092d7ef72e50b1e7f.jpg}" />
+                                </a>
+                                <label class="installment">Trả góp 0%</label>
+                                <label class="bonus">Lì xì 1.000.000đ</label>
+                            </div>
+                            <a class="title" href="#">iPhone 12 Pro Max 128GB</a>
+                            <div class="price">
+                                <span>32.990.000 ₫</span>
+                                <small>
+                                    <del>33.990.000 ₫</del>
+                                    <em>2 ngày 05:01:02</em>
+                                </small>
+                            </div>
+                            <div class="desc">
+                                <label><i class="bi-cpu-fill"></i> <span>A14 Bionic</span></label>
+                                <label><i class="bi-phone"></i> <span>6.7&Prime;</span></label>
+                                <label><i class="bi-grip-vertical"></i> <span>6 Gb</span></label>
+                                <label><i class="bi-hdd-fill"></i> <span>128 Gb</span></label>
+                            </div>
+                            <div class="button">
+                                <a class="btn btn-danger" href="#">Mua ngay</a>
+                                <a class="btn btn-secondary" href="#">So sánh</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-lg-3 col-6">
+                        <div class="background">
+                            <div class="avatar">
+                                <a href="#">
+                                    <img th:src="@{images/image/mobile/iphone/2b1efa83b1b341a092d7ef72e50b1e7f.jpg}" />
+                                </a>
+                                <label class="installment">Trả góp 0%</label>
+                                <label class="bonus">Lì xì 1.000.000đ</label>
+                            </div>
+                            <a class="title" href="#">iPhone 12 Pro Max 128GB</a>
+                            <div class="price">
+                                <span>32.990.000 ₫</span>
+                                <small>
+                                    <del>33.990.000 ₫</del>
+                                    <em>2 ngày 05:01:02</em>
+                                </small>
+                            </div>
+                            <div class="desc">
+                                <label><i class="bi-cpu-fill"></i> <span>A14 Bionic</span></label>
+                                <label><i class="bi-phone"></i> <span>6.7&Prime;</span></label>
+                                <label><i class="bi-grip-vertical"></i> <span>6 Gb</span></label>
+                                <label><i class="bi-hdd-fill"></i> <span>128 Gb</span></label>
+                            </div>
+                            <div class="button">
+                                <a class="btn btn-danger" href="#">Mua ngay</a>
+                                <a class="btn btn-secondary" href="#">So sánh</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-lg-3 col-6">
+                        <div class="background">
+                            <div class="avatar">
+                                <a href="#">
+                                    <img th:src="@{images/image/mobile/iphone/2b1efa83b1b341a092d7ef72e50b1e7f.jpg}" />
+                                </a>
+                                <label class="installment">Trả góp 0%</label>
+                                <label class="bonus">Lì xì 1.000.000đ</label>
+                            </div>
+                            <a class="title" href="#">iPhone 12 Pro Max 128GB</a>
+                            <div class="price">
+                                <span>32.990.000 ₫</span>
+                                <small>
+                                    <del>33.990.000 ₫</del>
+                                    <em>2 ngày 05:01:02</em>
+                                </small>
+                            </div>
+                            <div class="desc">
+                                <label><i class="bi-cpu-fill"></i> <span>A14 Bionic</span></label>
+                                <label><i class="bi-phone"></i> <span>6.7&Prime;</span></label>
+                                <label><i class="bi-grip-vertical"></i> <span>6 Gb</span></label>
+                                <label><i class="bi-hdd-fill"></i> <span>128 Gb</span></label>
+                            </div>
+                            <div class="button">
+                                <a class="btn btn-danger" href="#">Mua ngay</a>
+                                <a class="btn btn-secondary" href="#">So sánh</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-lg-3 col-6">
+                        <div class="background">
+                            <div class="avatar">
+                                <a href="#">
+                                    <img th:src="@{images/image/mobile/iphone/2b1efa83b1b341a092d7ef72e50b1e7f.jpg}" />
+                                </a>
+                                <label class="installment">Trả góp 0%</label>
+                                <label class="bonus">Lì xì 1.000.000đ</label>
+                            </div>
+                            <a class="title" href="#">iPhone 12 Pro Max 128GB</a>
+                            <div class="price">
+                                <span>32.990.000 ₫</span>
+                                <small>
+                                    <del>33.990.000 ₫</del>
+                                    <em>2 ngày 05:01:02</em>
+                                </small>
+                            </div>
+                            <div class="desc">
+                                <label><i class="bi-cpu-fill"></i> <span>A14 Bionic</span></label>
+                                <label><i class="bi-phone"></i> <span>6.7&Prime;</span></label>
+                                <label><i class="bi-grip-vertical"></i> <span>6 Gb</span></label>
+                                <label><i class="bi-hdd-fill"></i> <span>128 Gb</span></label>
+                            </div>
+                            <div class="button">
+                                <a class="btn btn-danger" href="#">Mua ngay</a>
+                                <a class="btn btn-secondary" href="#">So sánh</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="home-product">
+        <div class="container">
+            <div class="background">
+                <div class="title">
+                    <h2>LAPTOP BÁN CHẠY</h2>
+                    <a href="#">Xem tất cả</a>
+                </div>
+                <ul class="row content">
+                    <li class="col-lg-3 col-6">
+                        <div class="background">
+                            <div class="avatar">
+                                <a href="#">
+                                    <img th:src="@{images/image/laptop/acer/169fdbc03bf649648e826846290c39ef.jpg}" />
+                                </a>
+                                <label class="installment">Trả góp 0%</label>
+                                <label class="bonus">Lì xì 1.000.000đ</label>
+                            </div>
+                            <a class="title" href="#">iPhone 12 Pro Max 128GB</a>
+                            <div class="price">
+                                <span>32.990.000 ₫</span>
+                                <small>
+                                    <del>33.990.000 ₫</del>
+                                    <em>2 ngày 05:01:02</em>
+                                </small>
+                            </div>
+                            <div class="desc">
+                                <label><i class="bi-cpu-fill"></i> <span>A14 Bionic</span></label>
+                                <label><i class="bi-phone"></i> <span>6.7&Prime;</span></label>
+                                <label><i class="bi-grip-vertical"></i> <span>6 Gb</span></label>
+                                <label><i class="bi-hdd-fill"></i> <span>128 Gb</span></label>
+                            </div>
+                            <div class="button">
+                                <a class="btn btn-danger" href="#">Mua ngay</a>
+                                <a class="btn btn-secondary" href="#">So sánh</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-lg-3 col-6">
+                        <div class="background">
+                            <div class="avatar">
+                                <a href="#">
+                                    <img th:src="@{images/image/laptop/acer/1cf82f2160b145999bf6058c3d5bcd3c.jpg}" />
+                                </a>
+                                <label class="installment">Trả góp 0%</label>
+                                <label class="bonus">Lì xì 1.000.000đ</label>
+                            </div>
+                            <a class="title" href="#">iPhone 12 Pro Max 128GB</a>
+                            <div class="price">
+                                <span>32.990.000 ₫</span>
+                                <small>
+                                    <del>33.990.000 ₫</del>
+                                    <em>2 ngày 05:01:02</em>
+                                </small>
+                            </div>
+                            <div class="desc">
+                                <label><i class="bi-cpu-fill"></i> <span>A14 Bionic</span></label>
+                                <label><i class="bi-phone"></i> <span>6.7&Prime;</span></label>
+                                <label><i class="bi-grip-vertical"></i> <span>6 Gb</span></label>
+                                <label><i class="bi-hdd-fill"></i> <span>128 Gb</span></label>
+                            </div>
+                            <div class="button">
+                                <a class="btn btn-danger" href="#">Mua ngay</a>
+                                <a class="btn btn-secondary" href="#">So sánh</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-lg-3 col-6">
+                        <div class="background">
+                            <div class="avatar">
+                                <a href="#">
+                                    <img th:src="@{images/image/laptop/acer/1efc9ddf60984888a5c187a340a18bc1.jpg}" />
+                                </a>
+                                <label class="installment">Trả góp 0%</label>
+                                <label class="bonus">Lì xì 1.000.000đ</label>
+                            </div>
+                            <a class="title" href="#">iPhone 12 Pro Max 128GB</a>
+                            <div class="price">
+                                <span>32.990.000 ₫</span>
+                                <small>
+                                    <del>33.990.000 ₫</del>
+                                    <em>2 ngày 05:01:02</em>
+                                </small>
+                            </div>
+                            <div class="desc">
+                                <label><i class="bi-cpu-fill"></i> <span>A14 Bionic</span></label>
+                                <label><i class="bi-phone"></i> <span>6.7&Prime;</span></label>
+                                <label><i class="bi-grip-vertical"></i> <span>6 Gb</span></label>
+                                <label><i class="bi-hdd-fill"></i> <span>128 Gb</span></label>
+                            </div>
+                            <div class="button">
+                                <a class="btn btn-danger" href="#">Mua ngay</a>
+                                <a class="btn btn-secondary" href="#">So sánh</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-lg-3 col-6">
+                        <div class="background">
+                            <div class="avatar">
+                                <a href="#">
+                                    <img th:src="@{images/image/laptop/acer/2975189f76c5425ca255ffc4ce95c2cd.jpg}" />
+                                </a>
+                                <label class="installment">Trả góp 0%</label>
+                                <label class="bonus">Lì xì 1.000.000đ</label>
+                            </div>
+                            <a class="title" href="#">iPhone 12 Pro Max 128GB</a>
+                            <div class="price">
+                                <span>32.990.000 ₫</span>
+                                <small>
+                                    <del>33.990.000 ₫</del>
+                                    <em>2 ngày 05:01:02</em>
+                                </small>
+                            </div>
+                            <div class="desc">
+                                <label><i class="bi-cpu-fill"></i> <span>A14 Bionic</span></label>
+                                <label><i class="bi-phone"></i> <span>6.7&Prime;</span></label>
+                                <label><i class="bi-grip-vertical"></i> <span>6 Gb</span></label>
+                                <label><i class="bi-hdd-fill"></i> <span>128 Gb</span></label>
+                            </div>
+                            <div class="button">
+                                <a class="btn btn-danger" href="#">Mua ngay</a>
+                                <a class="btn btn-secondary" href="#">So sánh</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-lg-3 col-6">
+                        <div class="background">
+                            <div class="avatar">
+                                <a href="#">
+                                    <img th:src="@{images/image/mobile/iphone/2b1efa83b1b341a092d7ef72e50b1e7f.jpg}" />
+                                </a>
+                                <label class="installment">Trả góp 0%</label>
+                                <label class="bonus">Lì xì 1.000.000đ</label>
+                            </div>
+                            <a class="title" href="#">iPhone 12 Pro Max 128GB</a>
+                            <div class="price">
+                                <span>32.990.000 ₫</span>
+                                <small>
+                                    <del>33.990.000 ₫</del>
+                                    <em>2 ngày 05:01:02</em>
+                                </small>
+                            </div>
+                            <div class="desc">
+                                <label><i class="bi-cpu-fill"></i> <span>A14 Bionic</span></label>
+                                <label><i class="bi-phone"></i> <span>6.7&Prime;</span></label>
+                                <label><i class="bi-grip-vertical"></i> <span>6 Gb</span></label>
+                                <label><i class="bi-hdd-fill"></i> <span>128 Gb</span></label>
+                            </div>
+                            <div class="button">
+                                <a class="btn btn-danger" href="#">Mua ngay</a>
+                                <a class="btn btn-secondary" href="#">So sánh</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-lg-3 col-6">
+                        <div class="background">
+                            <div class="avatar">
+                                <a href="#">
+                                    <img th:src="@{images/image/mobile/iphone/2b1efa83b1b341a092d7ef72e50b1e7f.jpg}" />
+                                </a>
+                                <label class="installment">Trả góp 0%</label>
+                                <label class="bonus">Lì xì 1.000.000đ</label>
+                            </div>
+                            <a class="title" href="#">iPhone 12 Pro Max 128GB</a>
+                            <div class="price">
+                                <span>32.990.000 ₫</span>
+                                <small>
+                                    <del>33.990.000 ₫</del>
+                                    <em>2 ngày 05:01:02</em>
+                                </small>
+                            </div>
+                            <div class="desc">
+                                <label><i class="bi-cpu-fill"></i> <span>A14 Bionic</span></label>
+                                <label><i class="bi-phone"></i> <span>6.7&Prime;</span></label>
+                                <label><i class="bi-grip-vertical"></i> <span>6 Gb</span></label>
+                                <label><i class="bi-hdd-fill"></i> <span>128 Gb</span></label>
+                            </div>
+                            <div class="button">
+                                <a class="btn btn-danger" href="#">Mua ngay</a>
+                                <a class="btn btn-secondary" href="#">So sánh</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-lg-3 col-6">
+                        <div class="background">
+                            <div class="avatar">
+                                <a href="#">
+                                    <img th:src="@{images/image/mobile/iphone/2b1efa83b1b341a092d7ef72e50b1e7f.jpg}" />
+                                </a>
+                                <label class="installment">Trả góp 0%</label>
+                                <label class="bonus">Lì xì 1.000.000đ</label>
+                            </div>
+                            <a class="title" href="#">iPhone 12 Pro Max 128GB</a>
+                            <div class="price">
+                                <span>32.990.000 ₫</span>
+                                <small>
+                                    <del>33.990.000 ₫</del>
+                                    <em>2 ngày 05:01:02</em>
+                                </small>
+                            </div>
+                            <div class="desc">
+                                <label><i class="bi-cpu-fill"></i> <span>A14 Bionic</span></label>
+                                <label><i class="bi-phone"></i> <span>6.7&Prime;</span></label>
+                                <label><i class="bi-grip-vertical"></i> <span>6 Gb</span></label>
+                                <label><i class="bi-hdd-fill"></i> <span>128 Gb</span></label>
+                            </div>
+                            <div class="button">
+                                <a class="btn btn-danger" href="#">Mua ngay</a>
+                                <a class="btn btn-secondary" href="#">So sánh</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-lg-3 col-6">
+                        <div class="background">
+                            <div class="avatar">
+                                <a href="#">
+                                    <img th:src="@{images/image/mobile/iphone/2b1efa83b1b341a092d7ef72e50b1e7f.jpg}" />
+                                </a>
+                                <label class="installment">Trả góp 0%</label>
+                                <label class="bonus">Lì xì 1.000.000đ</label>
+                            </div>
+                            <a class="title" href="#">iPhone 12 Pro Max 128GB</a>
+                            <div class="price">
+                                <span>32.990.000 ₫</span>
+                                <small>
+                                    <del>33.990.000 ₫</del>
+                                    <em>2 ngày 05:01:02</em>
+                                </small>
+                            </div>
+                            <div class="desc">
+                                <label><i class="bi-cpu-fill"></i> <span>A14 Bionic</span></label>
+                                <label><i class="bi-phone"></i> <span>6.7&Prime;</span></label>
+                                <label><i class="bi-grip-vertical"></i> <span>6 Gb</span></label>
+                                <label><i class="bi-hdd-fill"></i> <span>128 Gb</span></label>
+                            </div>
+                            <div class="button">
+                                <a class="btn btn-danger" href="#">Mua ngay</a>
+                                <a class="btn btn-secondary" href="#">So sánh</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="home-ads-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <a href="#">
+                        <img class="w-100" th:src="@{images/image/ads-home/2.1.png}" />
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <a href="#">
+                        <img class="w-100" th:src="@{images/image/ads-home/2.2.png}" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="home-kit">
+        <div class="container">
+            <div class="background">
+                <h2>Phụ Kiện HOT</h2>
+                <ul class="row">
+                    <li class="col-lg col-md-3 col-6">
+                        <a href="#">
+                            <img th:src="@{images/image/kit/phu-kien.png}" />
+                            <span>Phụ Kiện Nổi Bật</span>
+                        </a>
+                    </li>
+                    <li class="col-lg col-md-3 col-6">
+                        <a href="#">
+                            <img th:src="@{images/image/kit/bao-da-op-lung.png}" />
+                            <span>Bao Da Ốp Lưng</span>
+                        </a>
+                    </li>
+                    <li class="col-lg col-md-3 col-6">
+                        <a href="#">
+                            <img th:src="@{images/image/kit/sac-du-phong.png}" />
+                            <span>Sạc Dự Phòng</span>
+                        </a>
+                    </li>
+                    <li class="col-lg col-md-3 col-6">
+                        <a href="#">
+                            <img th:src="@{images/image/kit/the-nho.png}" />
+                            <span>Thẻ Nhớ</span>
+                        </a>
+                    </li>
+                    <li class="col-lg col-md-3 col-6">
+                        <a href="#">
+                            <img th:src="@{images/image/kit/apple.png}" />
+                            <span>Phụ Kiện Apple</span>
+                        </a>
+                    </li>
+                    <li class="col-lg col-md-3 col-6">
+                        <a href="#">
+                            <img th:src="@{images/image/kit/mien-dan-man-hinh.png}" />
+                            <span>Miếng Dán Màn Hình</span>
+                        </a>
+                    </li>
+                    <li class="col-lg col-md-3 col-6">
+                        <a href="#">
+                            <img th:src="@{images/image/kit/tai-nghe.png}" />
+                            <span>Tai Nghe</span>
+                        </a>
+                    </li>
+                    <li class="col-lg col-md-3 col-6">
+                        <a href="#">
+                            <img th:src="@{images/image/kit/phu-kien-tai-che.png}" />
+                            <span>Phụ Kiện Cũ</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="row">
+                    <li class="col-lg col-md-3 col-6">
+                        <a href="#">
+                            <img th:src="@{images/image/kit/loa.png}" />
+                            <span>Loa</span>
+                        </a>
+                    </li>
+                    <li class="col-lg col-md-3 col-6">
+                        <a href="#">
+                            <img th:src="@{images/image/kit/usb-o-cung.png}" />
+                            <span>USB - Ổ Cứng</span>
+                        </a>
+                    </li>
+                    <li class="col-lg col-md-3 col-6">
+                        <a href="#">
+                            <img th:src="@{images/image/kit/cap-sac.png}" />
+                            <span>Sạc Cáp</span>
+                        </a>
+                    </li>
+                    <li class="col-lg col-md-3 col-6">
+                        <a href="#">
+                            <img th:src="@{images/image/kit/chuot.png}" />
+                            <span>Chuột</span>
+                        </a>
+                    </li>
+                    <li class="col-lg col-md-3 col-6">
+                        <a href="#">
+                            <img th:src="@{images/image/kit/ban-phim.png}" />
+                            <span>Bàn Phím</span>
+                        </a>
+                    </li>
+                    <li class="col-lg col-md-3 col-6">
+                        <a href="#">
+                            <img th:src="@{images/image/kit/balo.png}" />
+                            <span>Balo - Túi Xách</span>
+                        </a>
+                    </li>
+                    <li class="col-lg col-md-3 col-6">
+                        <a href="#">
+                            <img th:src="@{images/image/kit/tivi.png}" />
+                            <span>TV - BOX</span>
+                        </a>
+                    </li>
+                    <li class="col-lg col-md-3 col-6">
+                        <a href="#">
+                            <img th:src="@{images/image/kit/phu-kien-khac.png}" />
+                            <span>Phụ Kiện Khác</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="home-telecom">
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+                    <a href="#">
+                        <img class="w-100" th:src="@{images/image/ads-home/3.1.png}" />
+                    </a>
+                </div>
+                <div class="col-4">
+                    <a href="#">
+                        <img class="w-100" th:src="@{images/image/ads-home/3.2.png}" />
+                    </a>
+                </div>
+                <div class="col-4">
+                    <a href="#">
+                        <img class="w-100" th:src="@{images/image/ads-home/3.3.png}" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</content>
+<footer>
+    <section class="footer-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 footer-link">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <ul>
+                                <li>
+                                    <a href="#">Giới thiệu về công ty</a>
+                                </li>
+                                <li>
+                                    <a href="#">Câu hỏi thường gặp mua hàng</a>
+                                </li>
+                                <li>
+                                    <a href="#">Chính sách bảo mật</a>
+                                </li>
+                                <li>
+                                    <a href="#">Quy chế hoạt động</a>
+                                </li>
+                                <li>
+                                    <a href="#">Kiểm tra hóa đơn điện tử</a>
+                                </li>
+                                <li>
+                                    <a href="#">Tra cứu thông tin bảo hành</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-4">
+                            <ul>
+                                <li>
+                                    <a href="#">Tin tuyển dụng</a>
+                                </li>
+                                <li>
+                                    <a href="#">Tin khuyến mãi</a>
+                                </li>
+                                <li>
+                                    <a href="#">Hướng dẫn mua online</a>
+                                </li>
+                                <li>
+                                    <a href="#">Hướng dẫn mua trả góp</a>
+                                </li>
+                                <li>
+                                    <a href="#">Chính sách trả góp</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-4">
+                            <ul>
+                                <li>
+                                    <a href="#">Hệ thống cửa hàng</a>
+                                </li>
+                                <li>
+                                    <a href="#">Hệ thống bảo hành</a>
+                                </li>
+                                <li>
+                                    <a href="#">Kiểm tra hàng Apple chính hãng</a>
+                                </li>
+                                <li>
+                                    <a href="#">Giới thiệu máy đổi trả</a>
+                                </li>
+                                <li>
+                                    <a href="#">Chính sách đổi trả</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 footer-contact">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <strong>Tư vấn mua hàng (Miễn phí)</strong>
+                            <h4>
+                                <a href="tel:18006601">1800 6601</a>
+                                <span>(Nhánh 1)</span>
+                            </h4>
+                            <strong>Hỗ trợ kỹ thuật</strong>
+                            <h4>
+                                <a href="tel:18006601">1800 6601</a>
+                                <span>(Nhánh 2)</span>
+                            </h4>
+                        </div>
+                        <div class="col-lg-7">
+                            <strong>Góp ý, khiếu nại dịch vụ (8h00-22h00)</strong>
+                            <h4>
+                                <a href="tel:18006616">1800 6616</a>
+                            </h4>
+                        </div>
+                        <div class="col-lg-5">
+                            <strong>Hỗ trợ thanh toán:</strong>
+                            <i class="payment">Icon</i>
+                            <i class="support"></i>
+                            <i class="bct"></i>
+                        </div>
+                        <div class="col-lg-7">
+                            <strong>Chứng nhận:</strong>
+                            <i class="certificate">Icon</i>
+                            <div>Website cùng tập đoàn:</div>
+                            <a class="longchau" href="http:/nhathuoclongchau.com" target="_blank">Long Châu</a>
+                            <a class="fbeauty" href="http:/fbeauty.vn" target="_blank">FBeauty</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="footer-bottom">
+        © 2007 - 2020 Công Ty Cổ Phần Bán Lẻ Kỹ Thuật Số FPT / Địa chỉ: 261 - 263 Khánh Hội, P5, Q4, TP. Hồ Chí Minh / GPĐKKD số 0311609355 do Sở KHĐT TP.HCM cấp ngày 08/03/2012. GP số 47/GP-TTĐT do sở TTTT TP HCM cấp ngày 02/07/2018. Điện thoại: (028)73023456. Email: fptshop@fpt.com.vn.
+        <br />
+        Chịu trách nhiệm nội dung: Nguyễn Trịnh Nhật Linh.
+    </section>
+</footer>
+
+</body>
+</html>
