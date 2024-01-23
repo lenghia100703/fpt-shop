@@ -33,24 +33,30 @@
                     </div>
                     <div class="row">
                         <div class="col-4">
-                            <img class="img-profile rounded-circle mb-5" src="img/undraw_profile.svg" style="width: 300px">
+                            <img class="img-profile rounded-circle mb-5" src="img/undraw_profile.svg"
+                                 style="width: 300px">
                         </div>
                         <div class="col">
-                            <form th:action="@{/update-profile}" method="post" name="signupForm" id="signupForm" th:object="${admin}">
+                            <form th:action="@{/update-profile}" method="post" name="signupForm" id="signupForm"
+                                  th:object="${admin}">
                                 <div class="form-group">
                                     <label class="inputLabel" for="firstname"> First name</label>
-                                    <input class="form-control" type="text" id="firstname" th:field="*{firstName}" name="firstname" spellcheck="false" required>
+                                    <input class="form-control" type="text" id="firstname" th:field="*{firstName}"
+                                           name="firstname" spellcheck="false" required>
+                                    <div class="alert alert-warning"
+                                         th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></div>
                                 </div>
-                                <div class="alert alert-warning"
-                                     th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></div>
+
                                 <div class="form-group">
                                     <label class="inputLabel" for="lastname">Last name</label>
                                     <input class="form-control" type="text" th:field="*{lastName}"
                                            id="lastname" name="lastname" spellcheck="false" required>
+                                    <div class="alert alert-warning"
+                                         th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"
+                                         required></div>
                                 </div>
 
-                                <div class="alert alert-warning"
-                                     th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" required></div>
+
                                 <p><a th:href="@{/change-password}" class="text-primary">Change password</a></p>
                                 <div class="form-group">
                                     <label class="inputLabel" for="username">Email</label>
@@ -59,25 +65,31 @@
                                 </div>
 
                                 <div class="buttonWrapper">
-                                    <button type="button" class="btn btn-primary">Save Change</button>
+                                    <button type="submit" class="btn btn-primary" id="edit-btn">Save Change</button>
                                 </div>
                             </form>
                         </div>
                     </div>
-
                 </div>
             </div>
 
             <!-- End of Main Content -->
 
             <!-- Footer -->
-<!--            <footer th:replace="~{fragments::footer}"></footer>-->
+            <!--            <footer th:replace="~{fragments::footer}"></footer>-->
             <!-- End of Footer -->
 
         </div>
         <!-- End of Content Wrapper -->
 
     </div>
+</div>
+<div th:if="${success}" class="alert alert-success mt-3" role="alert" style="display: none;" id="customAlert">
+    <p th:text="${success}"></p>
+</div>
+
+<div th:if="${error}" class="alert alert-danger mt-3" role="alert" style="display: none;" id="customErrorAlert">
+    <p th:text="${error}"></p>
 </div>
 <!-- End of Page Wrapper -->
 
@@ -88,6 +100,21 @@
 <div th:replace="~{fragments::script}"></div>
 
 <script th:src="@{/js/brands.js}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const alertButton = document.getElementById('edit-btn');
+        const customAlert = document.getElementById('customAlert');
+
+        alertButton.addEventListener('click', function () {
+            // Show the alert
+            customAlert.style.display = 'block';
+
+            setTimeout(function () {
+                customAlert.style.display = 'none';
+            }, 3000);
+        });
+    });
+</script>
 </body>
 
 </html>
