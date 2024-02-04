@@ -1,6 +1,6 @@
 ﻿
 body {
-    background-image: url('/static/images/background-noel.png');
+    background-image: url("/shop/images/background-noel.png");
     background-size: cover;
 }
 
@@ -16,7 +16,7 @@ header {
 }
 
     header .logo {
-        background: url('src/main/resources/static/images/image/logo-icon/icons.svg') 0 0 no-repeat;
+        background: url('/shop/images/image/logo-icon/icons.svg') 0 0 no-repeat;
         width: 150px;
         height: 40px;
         text-indent: -99999px;
@@ -61,7 +61,7 @@ header {
             }
 
                 header .top-link li a i {
-                    background-image: url('images/image/logo-icon/top-icon.png');
+                    background-image: url('/shop/images/image/logo-icon/top-icon.png');
                     background-size: cover;
                     background-position-y: 3px;
                     background-repeat: no-repeat;
@@ -135,7 +135,7 @@ header {
                     display: inline-block;
                     width: 20px;
                     height: 20px;
-                    background-image: url('images/image/logo-icon/icons.svg');
+                    background-image: url('/shop/images/image/logo-icon/icons.svg');
                     background-position-y: -50px;
                     background-position-x: 0;
                 }
@@ -712,7 +712,7 @@ footer {
                 }
 
             footer .footer-top .footer-contact .payment {
-                background: url('images/image/logo-icon/iconft.png') 0 0 no-repeat;
+                background: url('/shop/images/image/logo-icon/iconft.png') 0 0 no-repeat;
                 width: 145px;
                 height: 30px;
                 display: block;
@@ -720,7 +720,7 @@ footer {
             }
 
             footer .footer-top .footer-contact .support {
-                background: url(images/image/logo-icon/iconft.png) -330px -30px no-repeat;
+                background: url('/shop/images/image/logo-icon/iconft.png') -330px -30px no-repeat;
                 width: 42px;
                 height: 42px;
                 display: inline-block;
@@ -728,7 +728,7 @@ footer {
             }
 
             footer .footer-top .footer-contact .bct {
-                background: url(images/image/logo-icon/iconft.png) 0 -30px no-repeat;
+                background: url('/shop/images/image/logo-icon/iconft.png') 0 -30px no-repeat;
                 width: 100px;
                 height: 42px;
                 display: inline-block;
@@ -736,7 +736,7 @@ footer {
             }
 
             footer .footer-top .footer-contact .certificate {
-                background: url(images/image/logo-icon/iconft.png) -104px -30px no-repeat;
+                background: url('/shop/images/image/logo-icon/iconft.png') -104px -30px no-repeat;
                 width: 215px;
                 height: 40px;
                 display: block;
@@ -744,7 +744,7 @@ footer {
             }
 
             footer .footer-top .footer-contact .longchau {
-                background: url(images/image/logo-icon/iconft.png) 0 -70px no-repeat;
+                background: url('/shop/images/image/logo-icon/iconft.png') 0 -70px no-repeat;
                 width: 102px;
                 height: 40px;
                 display: inline-block;
@@ -752,7 +752,7 @@ footer {
             }
 
             footer .footer-top .footer-contact .fbeauty {
-                background: url(images/image/logo-icon/iconft.png) -110px -70px no-repeat;
+                background: url('/shop/images/image/logo-icon/iconft.png') -110px -70px no-repeat;
                 width: 102px;
                 height: 40px;
                 display: inline-block;
