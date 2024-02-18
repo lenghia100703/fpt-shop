@@ -25,28 +25,23 @@
     <script th:src="@{/js/jquery.scrollAds.js}"></script>
     <script th:src="@{/js/script.js}"></script>
 
-    <!-- Đảm bảo rằng bạn đã bao gói mã JavaScript này trong thẻ <script> -->
+
     <script>
-        $(document).ready(function(){
-            $(".products-carousel").owlCarousel({
-                // Thiết lập các tuỳ chọn của Owl Carousel
-                loop:true, // Lặp vô hạn
-                margin:10, // Khoảng cách giữa các sản phẩm
-                nav:true, // Hiển thị nút điều hướng trước/sau
-                dots:false, // Ẩn các chấm chuyển đổi giữa các slide
-                responsive:{
-                    0:{
-                        items:1 // Hiển thị 1 sản phẩm trên màn hình nhỏ
-                    },
-                    600:{
-                        items:2 // Hiển thị 2 sản phẩm trên màn hình kích thước trung bình
-                    },
-                    1000:{
-                        items:4 // Hiển thị 4 sản phẩm trên màn hình lớn
-                    }
-                }
-            });
-        });
+        function increment() {
+            var input = document.querySelector('.product_quantity-cart');
+            var value = parseInt(input.value, 10);
+            if (value < 100) {
+                input.value = isNaN(value) ? 0 : value + 1;
+            }
+        }
+
+        function decrement() {
+            var input = document.querySelector('.product_quantity-cart');
+            var value = parseInt(input.value, 10);
+            if (value > 1) {
+                input.value = isNaN(value) ? 0 : value - 1;
+            }
+        }
     </script>
 
 
@@ -77,7 +72,6 @@
 
         .quantity {
             display: flex;
-            width: 100px;
             height: 40px;
             border: 1px solid #000;
             border-radius: 16px;
@@ -99,6 +93,7 @@
             user-select: none;
             cursor: pointer;
         }
+
 
         .action {
             display: inline-flex;
@@ -130,6 +125,41 @@
         .name_other_product:hover {
             color: #0168fa;
         }
+
+        .comment {
+            margin-bottom: 20px;
+        }
+
+        .comment__header {
+            display: flex;
+            align-items: center;
+        }
+
+        .comment__header__avatar img {
+            border-radius: 50%; /* Làm cho hình ảnh trở nên tròn */
+            width: 40px; /* Điều chỉnh kích thước hình ảnh avatar */
+            height: 40px;
+            object-fit: cover; /* Đảm bảo hình ảnh tròn với đúng tỷ lệ */
+            margin-right: 10px;
+        }
+
+        .comment__header__info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .comment__header__info__name {
+            font-weight: bold;
+        }
+
+        .comment__header__info__time {
+            color: #888;
+        }
+
+        .comment__content {
+            margin-top: 10px;
+        }
+
     </style>
 </head>
 <body>
@@ -156,33 +186,29 @@
                 <div class="col">
                     <article class="content_right">
                         <form th:action="@{/add-to-cart}" method="post">
+                            <input type="hidden" th:value="${productDetail.id}" name="id" />
+
                             <div class="product-details">
                                 <h2 th:text="${productDetail.name}"></h2>
                                 <span th:text="'Giá cả: ' + ${productDetail.formattedCostPrice} + 'đ'"></span>
                                 <div class="add_to_cart pb-3 mt-3">
                                     <div class="quantity">
-                                        <div class="sub_product_btn">
-                                            -
-                                        </div>
-                                        <span>1</span>
-                                        <div class="add_product_btn">
-                                            +
-                                        </div>
+                                        <div class="sub_product_btn" onclick="decrement()">-</div>
+                                        <input class="product_quantity-cart form-control" style="border: none; width: 34px" th:value="1" />
+                                        <div class="add_product_btn" onclick="increment()">+</div>
                                     </div>
                                     <div class="action">
-                                        Thêm vào giỏ hàng
+                                        <input type="submit" class="btn hvr-hover" value="Thêm vào giỏ hàng">
                                     </div>
-
-
                                 </div>
                             </div>
                             <h4>Đặc điểm nổi bật:</h4>
                             <p th:text="${productDetail.description}"></p>
+
+                        </form>
+                    </article>
                 </div>
-                </form>
-                </article>
             </div>
-        </div>
         </div>
     </section>
     <section class="related-products mt-5">
@@ -210,7 +236,54 @@
             </div>
         </div>
     </section>
+    <section class="feedback-section mt-5">
+        <div class="container">
+            <h2 class="text-center">Feedback</h2>
+            <form th:action="@{/add-feedback}" method="post">
+                <input type="hidden" th:value="${productDetail.id}" name="productId" />
+                <div class="form-group">
+                    <label for="message">Your Feedback:</label>
+                    <input type="text" id="message" name="message" class="form-control" required>
+                </div>
+                <input type="submit" class="btn btn-primary" value="Submit Feedback">
+            </form>
+            <div class="old-feedbacks mt-5">
+                <div th:each="feedback : ${feedbacks}" class="row">
+                    <div class="col">
+                        <div class="comment">
+                            <div class="comment__header">
+                                <div class="comment__header__avatar">
+                                    <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar">
+                                </div>
+                                <div class="comment__header__info">
+                                    <div class="comment__header__info__name" th:text="${feedback.getCustomer().getUsername()}"></div>
+                                    <div class="comment__header__info__time">2 giờ trước</div>
+                                </div>
+                            </div>
+                            <div class="comment__content">
+                                <p th:text="${feedback.getMessage()}"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </main>
 <footer th:replace="fragments :: footer"></footer>
 </body>
+
+<script>
+    document.querySelector('.add_product_btn').addEventListener('click', function() {
+        var quantityInput = document.getElementById('quantity');
+        quantityInput.value = parseInt(quantityInput.value) + 1;
+    });
+
+    document.querySelector('.sub_product_btn').addEventListener('click', function() {
+        var quantityInput = document.getElementById('quantity');
+        if (parseInt(quantityInput.value) > 1) {
+            quantityInput.value = parseInt(quantityInput.value) - 1;
+        }
+    });
+</script>
 </html>

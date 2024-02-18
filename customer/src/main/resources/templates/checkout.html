@@ -1,155 +1,149 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/" xmlns="http://www.w3.org/1999/html">
 <!-- Basic -->
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Trang Chủ - FPT Shop 2020</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet"/>
+    <link th:href="@{/css/owl.carousel.min.css}" rel="stylesheet"/>
+    <link th:href="@{/css/owl.theme.default.min.css}" rel="stylesheet"/>
+    <link th:href="@{/css/jquery.fancybox.min.css}" rel="stylesheet"/>
+    <link th:href="@{/css/jsRapClock.css}" rel="stylesheet"/>
+    <link th:href="@{/css/jquery.jqZoom.css}" rel="stylesheet"/>
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
 
-<head th:replace="~{fragments::head}">
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <script th:src="@{/js/jquery-3.0.0.js}"></script>
+    <script th:src="@{/js/bootstrap.bundle.js}"></script>
+    <script th:src="@{/js/jquery.nicescroll.js}"></script>
+    <script th:src="@{/js/owl.carousel.min.js}"></script>
+    <script th:src="@{/js/jquery.fancybox.min.js}"></script>
+    <script th:src="@{/js/jsRapClock.js}"></script>
+    <script th:src="@{/js/jquery.jqZoom.js}"></script>
+    <script th:src="@{/js/jquery-stars.js}"></script>
+    <script th:src="@{/js/jquery.scrollAds.js}"></script>
+    <script th:src="@{/js/script.js}"></script>
 
+    <style>
+        .cart-box-main {
+            background-color: #fff;
+        }
+    </style>
 </head>
-
 <body>
-<!-- Start Main Top -->
-<div th:replace="~{fragments::main-top}">
-</div>
-<!-- End Main Top -->
-
-
-<!-- Start Main Top -->
-<header th:replace="~{fragments::main-header}">
-</header>
-<!-- End Main Top -->
-
-<!-- Start Top Search -->
-<div th:replace="~{fragments::top-search}">
-</div>
-<!-- End Top Search -->
-
-<!-- Start All Title Box -->
-<div th:replace="~{fragments::all-title-box}">
-</div>
-<!-- End All Title Box -->
+<header th:replace="fragments :: header"></header>
+<nav th:replace="fragments :: nav"></nav>
 
 <!-- Start Cart  -->
-<div class="cart-box-main">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6 col-lg-6 mb-3">
-                <div class="checkout-address">
-                    <div class="title-left">
-                        <h3>Billing address</h3>
-                    </div>
-                    <form class="needs-validation" novalidate th:object="${customer}">
+<main>
+    <div class="cart-box-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-lg-6 mb-3">
+                    <div class="checkout-address">
+                        <div class="title-left">
+                            <h3>Billing address</h3>
+                        </div>
+                        <form class="needs-validation" novalidate th:object="${customer}">
 
-                        <div class="mb-3">
-                            <label for="username">Username *</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" th:field="*{username}" id="username"
-                                       placeholder="" readonly>
+                            <div class="mb-3">
+                                <label for="username">Username *</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" th:field="*{username}" id="username"
+                                           placeholder="" readonly>
+                                </div>
                             </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="phone">Phone Number *</label>
-                            <input type="text" class="form-control" th:field="*{phoneNumber}" id="phone" placeholder=""
-                                   readonly>
-                        </div>
-                        <div class="mb-3">
-                            <label for="address">Address *</label>
-                            <input type="text" class="form-control"
-                                   th:value="${customer.address + ' ' + customer.city + ' ' + customer.country}"
-                                   id="address" placeholder="" readonly>
-                        </div>
-                        <a th:href="@{/profile}" class="btn btn-primary"> Change information</a>
-                        <hr class="mb-4">
-                        <div class="title"><span>Payment Methods</span></div>
-                        <div class="d-block my-3">
-                            <div class="custom-control custom-radio">
-                                <input id="debit" name="paymentMethod" type="radio" checked class="custom-control-input"
-                                       required>
-                                <label class="custom-control-label" for="debit">Cash</label>
+                            <div class="mb-3">
+                                <label for="phone">Phone Number *</label>
+                                <input type="text" class="form-control" th:field="*{phoneNumber}" id="phone" placeholder=""
+                                       readonly>
                             </div>
-                        </div>
-                        <hr class="mb-1">
-                    </form>
+                            <div class="mb-3">
+                                <label for="address">Address *</label>
+                                <input type="text" class="form-control"
+                                       th:value="${customer.address + ' ' + customer.city + ' ' + customer.country}"
+                                       id="address" placeholder="" readonly>
+                            </div>
+                            <a th:href="@{/profile}" class="btn btn-primary"> Change information</a>
+                            <hr class="mb-4">
+                            <div class="title"><span>Payment Methods</span></div>
+                            <div class="d-block my-3">
+                                <div class="custom-control custom-radio">
+                                    <input id="debit" name="paymentMethod" type="radio" checked class="custom-control-input"
+                                           required>
+                                    <label class="custom-control-label" for="debit">Cash</label>
+                                </div>
+                            </div>
+                            <hr class="mb-1">
+                        </form>
+                    </div>
                 </div>
-            </div>
-            <div class="col-sm-6 col-lg-6 mb-3">
-                <form th:action="@{/add-order}" method="post" th:object="${shoppingCart}">
-                    <input type="hidden" name="id" th:value="${id}">
-                    <div class="col-md-12 col-lg-12">
-                        <div class="odr-box">
-                            <div class="title-left">
-                                <h3>Shopping cart</h3>
-                            </div>
-                            <div class="rounded p-2 bg-light">
-                                <div class="media mb-2 border-bottom" th:each="item : ${shoppingCart.getCartItems()}">
-                                    <div class="media-body"><a href="product-detail.html"
-                                                               th:text="${item.product.name}"></a>
-                                        <div class="small text-muted">Price: [(${item.product.costPrice})]$ <span
-                                                class="mx-2">|</span> Qty: [(${item.quantity})]
-                                            <span class="mx-2">|</span> Subtotal: $ + [(${item.unitPrice *
-                                            item.quantity})]
+                <div class="col-sm-6 col-lg-6 mb-3">
+                    <form th:action="@{/add-order}" method="post" th:object="${orderDetails}">
+                        <input type="hidden" name="id" th:value="${id}">
+                        <div class="col-md-12 col-lg-12">
+                            <div class="odr-box">
+                                <div class="title-left">
+                                    <h3>Order Details</h3>
+                                </div>
+                                <div class="rounded p-2 bg-light">
+                                    <div class="media mb-2 border-bottom" th:each="item : ${orderDetails.getCartItems()}">
+                                        <div class="media-body"><a href="product-detail.html"
+                                                                   th:text="${item.product.name}"></a>
+                                            <div class="small text-muted">Price: [(${item.product.costPrice})]$ <span
+                                                    class="mx-2">|</span> Qty: [(${item.quantity})]
+                                                <span class="mx-2">|</span> Subtotal: $ + [(${item.product.costPrice *
+                                                item.quantity})]
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-12 col-lg-12">
-                        <div class="order-box">
-                            <div class="title-left">
-                                <h2><b>Your order</b></h2>
+                        <div class="col-md-12 col-lg-12">
+                            <div class="order-box">
+                                <div class="title-left">
+                                    <h2><b>Your order</b></h2>
+                                </div>
+                                <div class="d-flex">
+                                    <div class="font-weight-bold">Product</div>
+                                    <div class="ml-auto font-weight-bold">Total</div>
+                                </div>
+                                <hr class="my-1">
+                                <div class="d-flex">
+                                    <h4>Sub Total</h4>
+                                    <div class="ml-auto font-weight-bold" th:text="${orderDetails.totalPrice}"></div>
+                                </div>
+                                <hr class="my-1">
+                                <div class="d-flex">
+                                    <h4>Tax</h4>
+                                    <div class="ml-auto font-weight-bold"> $2</div>
+                                </div>
+                                <div class="d-flex">
+                                    <h4>Shipping Cost</h4>
+                                    <div class="ml-auto font-weight-bold"> Free</div>
+                                </div>
+                                <hr>
+                                <div class="d-flex gr-total">
+                                    <h5>Grand Total</h5>
+                                    <div class="ml-auto h5" th:text="${orderDetails.totalPrice + 2}"></div>
+                                </div>
+                                <hr>
                             </div>
-                            <div class="d-flex">
-                                <div class="font-weight-bold">Product</div>
-                                <div class="ml-auto font-weight-bold">Total</div>
-                            </div>
-                            <hr class="my-1">
-                            <div class="d-flex">
-                                <h4>Sub Total</h4>
-                                <div class="ml-auto font-weight-bold" th:text="${shoppingCart.totalPrice}"></div>
-                            </div>
-                            <hr class="my-1">
-                            <div class="d-flex">
-                                <h4>Tax</h4>
-                                <div class="ml-auto font-weight-bold"> $2</div>
-                            </div>
-                            <div class="d-flex">
-                                <h4>Shipping Cost</h4>
-                                <div class="ml-auto font-weight-bold"> Free</div>
-                            </div>
-                            <hr>
-                            <div class="d-flex gr-total">
-                                <h5>Grand Total</h5>
-                                <div class="ml-auto h5" th:text="${shoppingCart.totalPrice + 2}"></div>
-                            </div>
-                            <hr>
                         </div>
-                    </div>
-                    <div class="col-12 d-flex shopping-box">
-                        <button type="submit" class="ml-auto btn hvr-hover">Place Order</button>
-                    </div>
-                </form>
+                        <div class="col-12 d-flex shopping-box">
+                            <button type="submit" class="btn btn-danger ml-auto btn hvr-hover">Thanh toán</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</main>
 <!-- End Cart -->
-
-<!-- Start Feed  -->
-<div th:replace="~{fragments::instagram-box}">
-</div>
-
+<footer th:replace="fragments :: footer"></footer>
 <!-- End Feed  -->
-
-
-<!-- Start Footer  -->
-<footer th:replace="~{fragments::footer}">
-</footer>
-
-<div th:replace="~{fragments::script}"></div>
 </body>
 
 </html>

@@ -1,145 +1,192 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <!-- Basic -->
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Trang Chủ - FPT Shop 2020</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet"/>
+    <link th:href="@{/css/owl.carousel.min.css}" rel="stylesheet"/>
+    <link th:href="@{/css/owl.theme.default.min.css}" rel="stylesheet"/>
+    <link th:href="@{/css/jquery.fancybox.min.css}" rel="stylesheet"/>
+    <link th:href="@{/css/jsRapClock.css}" rel="stylesheet"/>
+    <link th:href="@{/css/jquery.jqZoom.css}" rel="stylesheet"/>
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
 
-<head th:replace="~{fragments::head}">
+    <script th:src="@{/js/jquery-3.0.0.js}"></script>
+    <script th:src="@{/js/bootstrap.bundle.js}"></script>
+    <script th:src="@{/js/jquery.nicescroll.js}"></script>
+    <script th:src="@{/js/owl.carousel.min.js}"></script>
+    <script th:src="@{/js/jquery.fancybox.min.js}"></script>
+    <script th:src="@{/js/jsRapClock.js}"></script>
+    <script th:src="@{/js/jquery.jqZoom.js}"></script>
+    <script th:src="@{/js/jquery-stars.js}"></script>
+    <script th:src="@{/js/jquery.scrollAds.js}"></script>
+    <script th:src="@{/js/script.js}"></script>
+
+    <script>
+        function increment() {
+            var input = document.querySelector('.product_quantity-cart');
+            var value = parseInt(input.value, 10);
+            if (value < 100) {
+                input.value = isNaN(value) ? 0 : value + 1;
+            }
+        }
+
+        function decrement() {
+            var input = document.querySelector('.product_quantity-cart');
+            var value = parseInt(input.value, 10);
+            if (value > 1) {
+                input.value = isNaN(value) ? 0 : value - 1;
+            }
+        }
 
 
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    </script>
 
+    <style>
+        .cart-box-main {
+            background-color: #fff;
+        }
+
+        .count-product-cart {
+            width: 107px;
+            display: flex;
+            align-items: center;
+            height: 40px;
+            border: 1px solid rgba(22, 24, 35, 0.12);
+        }
+
+        .sub-btn {
+            font-size: 20px;
+            border-right: 1px solid rgba(22, 24, 35, 0.12);
+            padding: 5px 13px;
+            user-select: none;
+            cursor: pointer;
+        }
+
+        .product_quantity-cart {
+            user-select: none;
+        }
+
+        .add-btn {
+            font-size: 20px;
+            border-left: 1px solid rgba(22, 24, 35, 0.12);
+            padding: 5px 10px;
+            user-select: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
-
 <body>
-<!-- Start Main Top -->
-<div th:replace="~{fragments::main-top}">
-</div>
-<!-- End Main Top -->
-
-
-<!-- Start Main Top -->
-<header th:replace="~{fragments::main-header}">
-</header>
-<!-- End Main Top -->
-
-<!-- Start Top Search -->
-<div th:replace="~{fragments::top-search}">
-</div>
-<!-- End Top Search -->
-
-<!-- Start All Title Box -->
-<div th:replace="~{fragments:: all-title-box}">
-</div>
-<!-- End All Title Box -->
+<header th:replace="fragments :: header"></header>
+<nav th:replace="fragments :: nav"></nav>
 
 <!-- Start Cart  -->
-<div class="cart-box-main">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="table-main table-responsive">
-                    <p class="text-center" th:if="${check}"><i class="text-info font-weight-bold text-center"></i>
-                        You don't have any items in your cart</p>
-                    <table class="table" th:if="${grandTotal}">
-                        <thead>
-                        <tr>
-                            <th>Images</th>
-                            <th>Product Name</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Total</th>
-                            <th>Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr th:each="cartItem :  ${shoppingCart.cartItems}">
-                            <td class="thumbnail-img">
-                                <a href="#">
-                                    <img class="img-fluid"
-                                         th:src="'data:image/jepg;base64,' + ${cartItem.product.image}" alt=""/>
-                                </a>
-                            </td>
-                            <td class="name-pr">
-                                <p th:text="${cartItem.product.name}"></p>
-                            </td>
-                            <td class="price-pr">
-                                <p th:text="'$' + ${cartItem.unitPrice}"></p>
-                            </td>
-                            <form th:action="@{/update-cart}" method="post">
-                                <input type = "hidden" name = "id" th:value = "${cartItem.product.id}" >
-                                <td class="quantity-box">
-                                    <input type="number" name="quantity" th:value="${cartItem.quantity}" size="4"
-                                           value="1" min="0" step="1"
-                                           class="c-input-text qty text">
+<main>
+    <div class="cart-box-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="table-main table-responsive">
+                        <p class="text-center" th:if="${check}"><i class="text-info font-weight-bold text-center"></i>
+                            You don't have any items in your cart</p>
+                        <table class="table" th:if="${session.totalItems}">
+                            <thead>
+                            <tr>
+                                <th>Images</th>
+                                <th>Product Name</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="cartItem :  ${orderDetails.cartItems}">
+                                <td class="thumbnail-img">
+                                    <a href="#">
+                                        <img class="img-fluid rounded"
+                                             th:src="'data:image/jepg;base64,' + ${cartItem.product.image}" alt="Image"
+                                             style="width: 120px"/>
+                                    </a>
                                 </td>
-                                <td class="total-pr">
-                                    <p th:text="'$' + ${cartItem.unitPrice * cartItem.quantity}"></p>
+                                <td class="name-pr align-middle">
+                                    <p th:text="${cartItem.product.name}"></p>
                                 </td>
-                                <td>
-                                    <button type="submit" name="action" value="update" title="Update"
-                                            class="btn btn-primary">
-                                        Update
-                                    </button>
-                                    <button type="submit" name="action" value="delete" title="Update"
-                                            class="btn btn-danger">
-                                        Delete
-                                    </button>
+                                <td class="price-pr align-middle">
+                                    <p th:text="${cartItem.product.costPrice} + 'đ'"></p>
                                 </td>
-                            </form>
-                        </tr>
-                        </tbody>
-                    </table>
+                                <form th:action="@{/update-cart}" method="post">
+                                    <input type="hidden" name="id" th:value="${cartItem.product.id}">
+                                    <td class="quantity-box align-middle">
+                                        <div class="count-product-cart">
+                                            <div class="sub-btn" onclick="decrement()">
+                                                -
+                                            </div>
+                                            <input class="product_quantity-cart form-control" style="border: none; width: 34px" th:value="${cartItem.quantity}" />
+                                            <div class="add-btn" onclick="increment()">
+                                                +
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="total-pr align-middle">
+                                        <p th:text="${cartItem.product.costPrice * cartItem.quantity} + 'đ'"></p>
+                                    </td>
+                                    <td class="align-middle">
+                                        <button type="submit" name="action" value="update" title="Update"
+                                                class="btn btn-outline-primary btn-sm">
+                                            Update
+                                        </button>
+                                        <button type="submit" name="action" value="delete" title="Update"
+                                                class="btn btn-outline-danger btn-sm">
+                                            Delete
+                                        </button>
+                                    </td>
+                                </form>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row my-5" th:if = "${grandTotal}">
-            <div class="col-lg-8 col-sm-12"></div>
-            <div class="col-lg-4 col-sm-12">
-                <div class="order-box">
-                    <h3>Order summary</h3>
-                    <div class="d-flex">
-                        <h4>Sub Total</h4>
-                        <div class="ml-auto font-weight-bold"> </div>
+            <div class="row my-5 pb-5" th:if="${session.totalItems}">
+                <div class="col-lg-8 col-sm-12"></div>
+                <div class="col-lg-4 col-sm-12">
+                    <div class="order-box">
+                        <h3>Order summary</h3>
+                        <div class="d-flex">
+                            <h4>Sub Total</h4>
+                            <div class="ml-auto font-weight-bold"></div>
+                        </div>
+                        <hr class="my-1">
+                        <div class="d-flex">
+                            <h4>Thuế</h4>
+                            <div class="ml-auto font-weight-bold"> $2</div>
+                        </div>
+                        <div class="d-flex">
+                            <h4>Giá ship</h4>
+                            <div class="ml-auto font-weight-bold"> Free</div>
+                        </div>
+                        <hr>
+                        <div class="d-flex gr-total">
+                            <h5>Tổng tiền</h5>
+                            <div class="ml-auto h5" th:text="'$' + ${subTotal  + 2}"></div>
+                        </div>
+                        <hr>
                     </div>
-                    <hr class="my-1">
-                    <div class="d-flex">
-                        <h4>Tax</h4>
-                        <div class="ml-auto font-weight-bold"> $2</div>
-                    </div>
-                    <div class="d-flex">
-                        <h4>Shipping Cost</h4>
-                        <div class="ml-auto font-weight-bold"> Free</div>
-                    </div>
-                    <hr>
-                    <div class="d-flex gr-total">
-                        <h5>Grand Total</h5>
-                        <div class="ml-auto h5" th:text="'$' + ${grandTotal + 2}"></div>
-                    </div>
-                    <hr>
                 </div>
-            </div>
-            <div class="col-12 d-flex shopping-box"><a href="checkout.html" th:href="@{/check-out}" class="ml-auto btn hvr-hover">Checkout</a>
+                <div class="col-12 d-flex shopping-box"><a href="checkout.html" th:href="@{/check-out}"
+                                                           class="ml-auto btn btn-danger hvr-hover">Checkout</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</main>
 <!-- End Cart -->
-
-<!-- Start Feed  -->
-<div th:replace="~{fragments::instagram-box}">
-</div>
-
-<!-- End Feed  -->
-
-
-<!-- Start Footer  -->
-<footer th:replace="~{fragments::footer}"></footer>
-
-
-<div th:replace="~{fragments::script}"></div>
+<footer th:replace="fragments :: footer"></footer>
 </body>
 
 </html>
