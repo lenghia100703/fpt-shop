@@ -1,81 +1,95 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <!-- Basic -->
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Trang Chủ - FPT Shop 2020</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link th:href = "@{css/bootstrap.css}" rel="stylesheet" />
+    <link th:href = "@{css/owl.carousel.min.css}" rel="stylesheet" />
+    <link th:href = "@{css/owl.theme.default.min.css}" rel="stylesheet" />
+    <link th:href = "@{css/jquery.fancybox.min.css}" rel="stylesheet" />
+    <link th:href = "@{css/jsRapClock.css}" rel="stylesheet" />
+    <link th:href = "@{css/jquery.jqZoom.css}" rel="stylesheet" />
+    <link th:href = "@{css/style.css}" rel="stylesheet" />
 
-<head th:replace="~{fragments::head}">
+    <script th:src= "@{js/jquery-3.0.0.js}"></script>
+    <script th:src= "@{js/bootstrap.bundle.js}"></script>
+    <script th:src= "@{js/jquery.nicescroll.js}"></script>
+    <script th:src= "@{js/owl.carousel.min.js}"></script>
+    <script th:src= "@{js/jquery.fancybox.min.js}"></script>
+    <script th:src= "@{js/jsRapClock.js}"></script>
+    <script th:src= "@{js/jquery.jqZoom.js}"></script>
+    <script th:src= "@{js/jquery-stars.js}"></script>
+    <script th:src= "@{js/jquery.scrollAds.js}"> </script>
+    <script th:src= "@{js/script.js}"></script>
 
+    <style>
+        .cart-box-main {
+            background-color: #fff;
+        }
 
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
+        .table-responsive {
+            overflow-x: initial;
+        }
+    </style>
 </head>
-
 <body>
-<!-- Start Main Top -->
-<div th:replace="~{fragments::main-top}">
-</div>
-<!-- End Main Top -->
-
-
-<!-- Start Main Top -->
-<header th:replace="~{fragments::main-header}">
-</header>
-<!-- End Main Top -->
-
-<!-- Start Top Search -->
-<div th:replace="~{fragments::top-search}">
-</div>
-<!-- End Top Search -->
-
-<!-- Start All Title Box -->
-<div th:replace="~{fragments:: all-title-box}">
-</div>
-<!-- End All Title Box -->
+<div th:replace="fragments :: header"></div>
+<div th:replace="fragments :: nav"></div>
 
 <!-- Start Cart  -->
-<div class="cart-box-main">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="table-main table-responsive">
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th>Images</th>
-                            <th>Product Name</th>
-                            <th>Price</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr th:each="orderdetail : ${order.orderDetailList}">
-                            <td class="thumbnail-img">
-                                <a href="#">
-                                    <img class="img-fluid"
-                                         th:src="'data:image/jepg;base64,' + ${orderdetail.product.image}" alt=""/>
-                                </a>
-                            </td>
-                            <td class="name-pr">
-                                <p th:text="${orderdetail.product.name}"></p>
-                            </td>
-                            <td class="price-pr">
-                                <p th:text="'$' + ${orderdetail.product.costPrice}"></p>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    <div class="row my-5">
-                        <div class="col-lg-8 col-sm-12"></div>
-                        <div class="col-lg-4 col-sm-12">
-                            <div class="order-box">
-                                <h3>Order summary</h3>
-                                <div class="d-flex">
-                                    <p>Total Quantity [(${order.quantity})]</p>
-                                    <h4>Sub Total</h4>
-                                    <div class="ml-auto font-weight-bold" th:text="${order.totalPrice}"> </div>
+<main>
+    <div class="cart-box-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="table-main table-responsive">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Product Name</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="orderdetail : ${order.orderDetailList}">
+                                <td class="thumbnail-img">
+                                    <a href="#">
+                                        <img class="img-fluid rounded"
+                                             th:src="'data:image/jepg;base64,' + ${orderdetail.product.image}" alt="image" style="width: 120px"/>
+                                    </a>
+                                </td>
+                                <td class="name-pr align-middle">
+                                    <p th:text="${orderdetail.product.name}"></p>
+                                </td>
+                                <td class="price-pr align-middle">
+                                    <p th:text="${orderdetail.product.costPrice} + 'đ'"></p>
+                                </td>
+                                <td class="align-middle">
+                                    <p th:text="${1}"></p>
+                                </td>
+                                <td class="align-middle">
+                                    <p th:text="${orderdetail.product.costPrice} + 'đ'"></p>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="row my-5">
+                            <div class="col-lg-7 col-sm-12"></div>
+                            <div class="col-lg-5 col-sm-12">
+                                <div class="order-box">
+                                    <h3>Order summary ([(${order.quantity})] product)</h3>
+                                    <div class="d-flex align-content-center justify-content-sm-between">
+                                        <h5 th:text="'Payment method: ' + ${order.paymentMethod}"></h5>
+                                        <h5 class="" th:text="'Sub total: ' + ${order.totalPrice} + 'đ'"> </h5>
+                                    </div>
+                                    <hr class="my-1">
                                 </div>
-                                <hr class="my-1">
                             </div>
                         </div>
                     </div>
@@ -83,21 +97,9 @@
             </div>
         </div>
     </div>
-</div>
+</main>
 <!-- End Cart -->
-
-<!-- Start Feed  -->
-<div th:replace="~{fragments::instagram-box}">
-</div>
-
-<!-- End Feed  -->
-
-
-<!-- Start Footer  -->
-<footer th:replace="~{fragments::footer}"></footer>
-
-
-<div th:replace="~{fragments::script}"></div>
+<div th:replace="fragments :: footer"></div>
 </body>
 
 </html>
